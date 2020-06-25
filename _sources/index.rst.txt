@@ -1,0 +1,37 @@
+General Usage
+==================
+.. ODEDSL Version 2.0 03/30/20, Author: Severin Bals, Anna Mittermair
+
+This program serves as an automatic initial valued ODE solver. The symbolic representation of the discrete equations allows efficient mapping to heterogenous hardware architectures. The mapping and hardware architectures will be added in future versions of the program. For first evaluations the program is able to produce C-code, which calculates the solution of the ODE.
+
+Motivation
+=================
+
+Parameter optimisation is the task of searching the parameter value space of a model with the goal of finding the perfect set of parameter values. As the search space usually is high-dimensional, both efficient ODE solver and efficient usage of hardware architectures are crucial factors. Both steps of applying proper time integration methods and mapping on to high-performance hardware architectures are normally applied manually and thus comprise very error-prone and time-consuming tasks.
+The goal of this program is to automate these two tasks. The current version lays the foundation by automatically applying time integration methods on the basis of symbolic representation with the Python library sympy. The symbolic representation is used to provide a general interface for later approaches of high performance computing, as for example computations on heterogenous hardware architectures.
+
+Usermanual
+======================
+
+A detailed usermanual with examples, that explains the general pipeline of the program can be found in "doc/first_steps.pdf".
+
+
+.. toctree::
+   :maxdepth: 4
+
+   .. requirements
+   start
+   overview
+   usage
+
+Ausführung + Optionen
+Beispiel
+Was liegt wo / structure
+
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`

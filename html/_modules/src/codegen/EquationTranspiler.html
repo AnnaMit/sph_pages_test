@@ -1,0 +1,570 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>src.codegen.EquationTranspiler &mdash; tidowa  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> tidowa
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../start.html">First steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../overview.html#discretization">Discretization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../overview.html#code-generation">Code Generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../overview.html#compilation">Compilation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../overview.html#execution">Execution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../usage.html#first-steps">First steps</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">tidowa</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>src.codegen.EquationTranspiler</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for src.codegen.EquationTranspiler</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">abc</span> <span class="k">import</span> <span class="n">ABC</span><span class="p">,</span> <span class="n">abstractmethod</span>
+
+<span class="kn">import</span> <span class="nn">sympy</span> <span class="k">as</span> <span class="nn">sp</span>
+
+
+<span class="k">class</span> <span class="nc">EquationTranspiler</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Abstract template for generating mathematical equations/loops etc in a specific language.</span>
+
+<span class="sd">    This class is an abstract template. It is used in the TemplateTranspiler class and its subclasses to generate mathematical equations/loops etc in a specific language.</span>
+<span class="sd">    Subclasses are required to implement the following functions:</span>
+
+<span class="sd">    * ``inorder(cls, expr)`` Convert the sympy expression expr to a string of code in the respective language.</span>
+<span class="sd">    * ``generate_loop(cls, loop_content, loop_type, loop_iterations, condition)`` Generate a string of code representing the specific loop with the code for loop_content as the loop body.</span>
+<span class="sd">    * ``generate_assignment(cls, equation)`` Generate code implementing the equation.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">inorder</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">expr</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Convert the sympy expression ``expr`` to a string of code in the respective language.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            expr (sympy.core.expr.Expr): The expression to be converted. Can be an expression of expressions.</span>
+<span class="sd">        Returns:</span>
+<span class="sd">              String of code in the respective language.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">while</span> <span class="kc">False</span><span class="p">:</span>
+            <span class="k">yield</span> <span class="kc">None</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">generate_loop</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">loop_content</span><span class="p">,</span> <span class="n">loop_type</span><span class="p">,</span> <span class="n">loop_iterations</span><span class="p">,</span> <span class="n">condition</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Generate code to implement the loop specified in the parameters.</span>
+
+<span class="sd">        The generated loop is a loop of type loop_type with a loop condition depending on loop_iterations and condition</span>
+<span class="sd">        and loop_content as the body.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            loop_content (sympy.codegen.ast.While):  Sympy while loop with the loop body being a sympy expression</span>
+<span class="sd">            loop_type (str): Type of the generated loop.</span>
+<span class="sd">            loop_iterations (int): Number of times the loop will be executed (if it is iterative).</span>
+<span class="sd">            condition (sympy.logic.boolalg.Boolean):  Sympy expression for the iteration condition of the loop (if applicable), e.g. i&lt;5.</span>
+<span class="sd">        Returns:</span>
+<span class="sd">             A string with the code.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">while</span> <span class="kc">False</span><span class="p">:</span>
+            <span class="k">yield</span> <span class="kc">None</span>
+
+    <span class="k">def</span> <span class="nf">correct_datatype</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">line</span><span class="p">,</span> <span class="n">datatype</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Apply string replacements to make the code use the specified datatype.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            line (str): Line of code that will be adapted.</span>
+<span class="sd">            datatype (str): Datatype that should be used.</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            The adapted line of code as a string.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">generate_assignment</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">equation</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Generate code implementing the equation.</span>
+
+<span class="sd">        Note:</span>
+<span class="sd">            During code generation the passed equations need to be interpreted as assignments.</span>
+<span class="sd">            For example: ``Eq(x, 2*x+1)`` means ``x=2*x+1`` and not ``x=-1`` or ``x==2*x+1``.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            equation (sympy.core.relational.Equality equation): An equation of the form &#39;Eq(symbol, expression)&#39;.</span>
+<span class="sd">        Returns:</span>
+<span class="sd">             A string with the code.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">generate_print_code</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Generate and return a string with code used for printing.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">declare_local_variable</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">curr_lhs</span><span class="p">,</span> <span class="n">datatype</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Generate and return ca string with code that declares curr_lhs as a local variable of type datatype (if possible).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">declare_RK_array</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">array_name</span><span class="p">,</span> <span class="n">datatype</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return a string with code that declares an array containing the Runge-Kutta stage values.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+
+
+
+<span class="k">class</span> <span class="nc">CBased_EquationTranspiler</span><span class="p">(</span><span class="n">EquationTranspiler</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Subclass of EquationTranspiler for generating C-code implementing mathematical equations/loops.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">inorder</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">expr</span><span class="p">,</span> <span class="n">data_type</span><span class="o">=</span><span class="s1">&#39;double&#39;</span><span class="p">,</span> <span class="n">vectorize</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Convert the sympy expression expr to a string of C-code.</span>
+
+<span class="sd">        Traverses the equation tree by recursively calling itself on the sub-expressions of expr.</span>
+<span class="sd">        (Extended copy from inorder in ``Simple_C_Transpiler``.)</span>
+<span class="sd">        Implements + overrides ``inorder(cls, expr)`` from ``EquationTranspiler``.</span>
+<span class="sd">        </span>
+<span class="sd">        Note:</span>
+<span class="sd">            Assumes the only variables left in the equation are the x_i_n and t_n.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            expr (sympy.core.expr.Expr): The sympy expression to translate into C syntax.</span>
+<span class="sd">            data_type (str): Datatype of the code (&#39;float&#39;/&#39;double&#39;; default is &#39;double&#39;). Using &#39;float&#39; formats floating point numbers as a float (e.g. 123.4567F).</span>
+<span class="sd">            vectorize (bool): Whether to replace some functions (e.g. ``pow``) by an approximation which is easier to vectorize. Default is false.</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            A string in C syntax, which is equivalent to ``expr``.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">expr_func</span> <span class="o">=</span> <span class="n">expr</span><span class="o">.</span><span class="n">func</span>
+
+        <span class="c1">############### CURRENT NODE EVALUATION ##################</span>
+
+        <span class="c1"># -- These special cases have to be evaluated in another order than inorder --</span>
+        <span class="c1"># special case Pow</span>
+        <span class="k">if</span> <span class="n">expr_func</span> <span class="o">==</span> <span class="n">sp</span><span class="o">.</span><span class="n">Pow</span><span class="p">:</span>  <span class="c1"># left child             #right child</span>
+            <span class="k">return</span> <span class="s1">&#39;pow(</span><span class="si">%s</span><span class="s1">,</span><span class="si">%s</span><span class="s1">)&#39;</span> <span class="o">%</span> <span class="p">(</span>
+                    <span class="bp">cls</span><span class="o">.</span><span class="n">inorder</span><span class="p">(</span><span class="n">expr</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">data_type</span><span class="p">,</span> <span class="n">vectorize</span><span class="p">),</span> <span class="bp">cls</span><span class="o">.</span><span class="n">inorder</span><span class="p">(</span><span class="n">expr</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">data_type</span><span class="p">,</span> <span class="n">vectorize</span><span class="p">))</span>
+        <span class="c1"># special case exp()</span>
+        <span class="k">if</span> <span class="n">expr_func</span> <span class="o">==</span> <span class="n">sp</span><span class="o">.</span><span class="n">exp</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">vectorize</span><span class="p">:</span>
+                <span class="k">return</span> <span class="s1">&#39;exp(</span><span class="si">%s</span><span class="s1">)&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">inorder</span><span class="p">(</span><span class="n">expr</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">data_type</span><span class="p">,</span> <span class="n">vectorize</span><span class="p">))</span>
+                <span class="c1"># return cls.inorder(sp.Pow((1 + expr.args[0] / 256), 256), data_type, vectorize)#e^a = lambda exp: sp.Pow((1 + a / 256), 256)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="s1">&#39;exp(</span><span class="si">%s</span><span class="s1">)&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">inorder</span><span class="p">(</span><span class="n">expr</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">data_type</span><span class="p">,</span> <span class="n">vectorize</span><span class="p">))</span>
+        <span class="c1"># special case log</span>
+        <span class="k">if</span> <span class="n">expr_func</span> <span class="o">==</span> <span class="n">sp</span><span class="o">.</span><span class="n">log</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s1">&#39;log(</span><span class="si">%s</span><span class="s1">)&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">inorder</span><span class="p">(</span><span class="n">expr</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">data_type</span><span class="p">,</span> <span class="n">vectorize</span><span class="p">))</span>
+        <span class="k">elif</span> <span class="n">expr_func</span> <span class="o">==</span> <span class="n">sp</span><span class="o">.</span><span class="n">Abs</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s1">&#39;fabs(</span><span class="si">%s</span><span class="s1">)&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">inorder</span><span class="p">(</span><span class="n">expr</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">data_type</span><span class="p">,</span> <span class="n">vectorize</span><span class="p">))</span>
+
+        <span class="c1"># special case Symbol    -   only possibilities should be t or an x_i</span>
+        <span class="k">if</span> <span class="n">expr_func</span> <span class="o">==</span> <span class="n">sp</span><span class="o">.</span><span class="n">Symbol</span><span class="p">:</span>
+            <span class="c1"># case t is a variable in the equation</span>
+            <span class="k">if</span> <span class="n">expr</span> <span class="o">==</span> <span class="n">sp</span><span class="o">.</span><span class="n">Symbol</span><span class="p">(</span><span class="s2">&quot;t_n&quot;</span><span class="p">):</span>
+                <span class="k">return</span> <span class="s1">&#39;deltaT*step&#39;</span>
+            <span class="c1"># case it is a timestep_specific_variable, a parameter or a RungeKutta stage</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">expr</span><span class="p">)</span>
+
+        <span class="c1"># Case Piecewise (conditional function)</span>
+        <span class="k">if</span> <span class="n">expr_func</span> <span class="o">==</span> <span class="n">sp</span><span class="o">.</span><span class="n">Piecewise</span><span class="p">:</span>
+            <span class="n">currnode_str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+            <span class="c1"># Iterate over the (expr, cond)-tuples of the Piecewise</span>
+            <span class="c1"># apply piecewise_fold first to flatten out recursivly packed Piecewises</span>
+            <span class="n">pw</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">piecewise_fold</span><span class="p">(</span><span class="n">expr</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">tup</span> <span class="ow">in</span> <span class="n">pw</span><span class="o">.</span><span class="n">args</span><span class="p">:</span>
+                <span class="c1"># Case last tuple; must be True as conditions must be exhaustive</span>
+                <span class="k">if</span> <span class="n">tup</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">func</span> <span class="o">==</span> <span class="n">sp</span><span class="o">.</span><span class="n">boolalg</span><span class="o">.</span><span class="n">BooleanTrue</span><span class="p">:</span>
+                    <span class="n">currnode_str</span> <span class="o">+=</span> <span class="s1">&#39;(&#39;</span> <span class="o">+</span> <span class="bp">cls</span><span class="o">.</span><span class="n">inorder</span><span class="p">(</span><span class="n">tup</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">data_type</span><span class="p">,</span> <span class="n">vectorize</span><span class="p">)</span>
+
+                <span class="c1"># Case any onther expression-condition tuple</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">currnode_str</span> <span class="o">+=</span> <span class="s1">&#39;(</span><span class="si">%s</span><span class="s1">?</span><span class="si">%s</span><span class="s1">:&#39;</span> <span class="o">%</span> <span class="p">(</span>
+                            <span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">inorder</span><span class="p">(</span><span class="n">tup</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">data_type</span><span class="p">,</span> <span class="n">vectorize</span><span class="p">)),</span> <span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">inorder</span><span class="p">(</span><span class="n">tup</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">data_type</span><span class="p">,</span> <span class="n">vectorize</span><span class="p">)))</span>
+
+            <span class="c1"># Close all opened paranthesis and give back NAN if none of the conditions pertained (Function must be undefined here)</span>
+            <span class="n">currnode_str</span> <span class="o">+=</span> <span class="s1">&#39;)&#39;</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">pw</span><span class="o">.</span><span class="n">args</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">currnode_str</span>
+
+        <span class="c1"># -- If not handled by the above, evaluate in inorder --</span>
+        <span class="n">currnode_str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+        <span class="k">if</span> <span class="n">expr_func</span> <span class="o">==</span> <span class="n">sp</span><span class="o">.</span><span class="n">Add</span><span class="p">:</span>
+            <span class="n">currnode_str</span> <span class="o">=</span> <span class="s1">&#39;+&#39;</span>
+        <span class="k">elif</span> <span class="n">expr_func</span> <span class="o">==</span> <span class="n">sp</span><span class="o">.</span><span class="n">Mul</span><span class="p">:</span>
+            <span class="n">currnode_str</span> <span class="o">=</span> <span class="s1">&#39;*&#39;</span>
+        <span class="k">elif</span> <span class="n">expr_func</span> <span class="o">==</span> <span class="n">sp</span><span class="o">.</span><span class="n">Equality</span><span class="p">:</span>
+            <span class="n">currnode_str</span> <span class="o">=</span> <span class="s1">&#39;==&#39;</span>
+        <span class="k">elif</span> <span class="n">expr_func</span> <span class="o">==</span> <span class="n">sp</span><span class="o">.</span><span class="n">Unequality</span><span class="p">:</span>
+            <span class="n">currnode_str</span> <span class="o">=</span> <span class="s1">&#39;!=&#39;</span>
+        <span class="k">elif</span> <span class="n">expr_func</span> <span class="o">==</span> <span class="n">sp</span><span class="o">.</span><span class="n">GreaterThan</span><span class="p">:</span>
+            <span class="n">currnode_str</span> <span class="o">=</span> <span class="s1">&#39;&gt;=&#39;</span>
+        <span class="k">elif</span> <span class="n">expr_func</span> <span class="o">==</span> <span class="n">sp</span><span class="o">.</span><span class="n">StrictGreaterThan</span><span class="p">:</span>
+            <span class="n">currnode_str</span> <span class="o">=</span> <span class="s1">&#39;&gt;&#39;</span>
+        <span class="k">elif</span> <span class="n">expr_func</span> <span class="o">==</span> <span class="n">sp</span><span class="o">.</span><span class="n">LessThan</span><span class="p">:</span>
+            <span class="n">currnode_str</span> <span class="o">=</span> <span class="s1">&#39;&lt;=&#39;</span>
+        <span class="k">elif</span> <span class="n">expr_func</span> <span class="o">==</span> <span class="n">sp</span><span class="o">.</span><span class="n">StrictLessThan</span><span class="p">:</span>
+            <span class="n">currnode_str</span> <span class="o">=</span> <span class="s1">&#39;&lt;&#39;</span>
+        <span class="k">elif</span> <span class="n">expr_func</span> <span class="o">==</span> <span class="n">sp</span><span class="o">.</span><span class="n">And</span><span class="p">:</span>
+            <span class="n">currnode_str</span> <span class="o">=</span> <span class="s1">&#39;&amp;&amp;&#39;</span>
+        <span class="k">elif</span> <span class="n">expr_func</span> <span class="o">==</span> <span class="n">sp</span><span class="o">.</span><span class="n">Or</span><span class="p">:</span>
+            <span class="n">currnode_str</span> <span class="o">=</span> <span class="s1">&#39;||&#39;</span>
+
+        <span class="c1"># Convert all integers to floating point numbers to avoid errors because of accidental usage of int operations.</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="n">sp</span><span class="o">.</span><span class="n">Integer</span><span class="p">):</span>  <span class="c1"># in parentheses, because it can have a negative sign</span>
+            <span class="n">currnode_str</span> <span class="o">=</span> <span class="s1">&#39;(</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">Float</span><span class="p">(</span><span class="n">expr</span><span class="p">))</span>
+            <span class="c1"># Make number float if necessary</span>
+            <span class="k">if</span> <span class="n">data_type</span> <span class="o">==</span> <span class="s1">&#39;float&#39;</span><span class="p">:</span>
+                <span class="n">currnode_str</span> <span class="o">+=</span> <span class="s1">&#39;F&#39;</span>
+            <span class="n">currnode_str</span> <span class="o">+=</span> <span class="s1">&#39;)&#39;</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">data_type</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="n">expr</span><span class="o">.</span><span class="n">is_rational</span><span class="p">:</span>
+            <span class="n">currnode_str</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">Float</span><span class="p">(</span><span class="n">expr</span><span class="p">))</span>
+            <span class="k">if</span> <span class="n">data_type</span> <span class="o">==</span> <span class="s1">&#39;float&#39;</span><span class="p">:</span>
+                <span class="n">currnode_str</span> <span class="o">+=</span> <span class="s1">&#39;F&#39;</span>
+        <span class="k">else</span><span class="p">:</span>  <span class="c1"># Float, Rational, numbers.Half,</span>
+            <span class="n">currnode_str</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">expr</span><span class="p">)</span>
+            <span class="c1"># Make number float if necessary</span>
+            <span class="k">if</span> <span class="n">data_type</span> <span class="o">==</span> <span class="s1">&#39;float&#39;</span><span class="p">:</span>
+                <span class="n">currnode_str</span> <span class="o">+=</span> <span class="s1">&#39;F&#39;</span>
+
+        <span class="c1">######################### EXPRESSION TREE TRAVERSAL #########################</span>
+
+        <span class="c1"># case LEAF</span>
+        <span class="k">if</span> <span class="n">expr</span><span class="o">.</span><span class="n">args</span> <span class="o">==</span> <span class="p">():</span>
+            <span class="k">return</span> <span class="n">currnode_str</span>
+        <span class="c1"># case inner NODE</span>
+        <span class="n">ret_str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">expr</span><span class="o">.</span><span class="n">args</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="n">ret_str</span> <span class="o">+=</span> <span class="s1">&#39;(&#39;</span> <span class="o">+</span> <span class="bp">cls</span><span class="o">.</span><span class="n">inorder</span><span class="p">(</span><span class="n">expr</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">data_type</span><span class="p">,</span> <span class="n">vectorize</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;)&#39;</span>
+            <span class="n">ret_str</span> <span class="o">+=</span> <span class="n">currnode_str</span>
+        <span class="n">ret_str</span> <span class="o">+=</span> <span class="s1">&#39;(&#39;</span> <span class="o">+</span> <span class="bp">cls</span><span class="o">.</span><span class="n">inorder</span><span class="p">(</span><span class="n">expr</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">expr</span><span class="o">.</span><span class="n">args</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">],</span> <span class="n">data_type</span><span class="p">,</span> <span class="n">vectorize</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;)&#39;</span>
+
+        <span class="k">return</span> <span class="n">ret_str</span>
+
+    <span class="k">def</span> <span class="nf">generate_loop</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">loop_content</span><span class="p">,</span> <span class="n">loop_type</span><span class="p">,</span> <span class="n">loop_iterations</span><span class="p">,</span> <span class="n">condition</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Generate C-code to implement the loop specified in the parameters.</span>
+
+<span class="sd">        The generated loop is a loop of type loop_type with a loop condition depending on loop_iterations and condition</span>
+<span class="sd">        and loop_content as the body.</span>
+<span class="sd">        Implements + overrides generate_loop(cls, loop_content, loop_type, loop_iterations, condition) from EquationTranspiler.</span>
+
+
+<span class="sd">        Args:</span>
+<span class="sd">            loop_content (sympy.codegen.ast.While): Sympy while loop with the loop body being a sympy expression. The loop condition is ignored and replaced by the function parameter.</span>
+<span class="sd">            loop_type (str): Type of the generated loop (&#39;for&#39;, &#39;while&#39;, &#39;both&#39;, &#39;counter&#39;). &#39;both&#39; and &#39;counter&#39; are treated the same as the default.</span>
+<span class="sd">            loop_iterations (int): Number of times the loop will be executed (if it is iterative).</span>
+<span class="sd">            condition (sympy.logic.boolalg.Boolean): Sympy expression for the iteration condition of the loop (if applicable), e.g. i&lt;5.</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            str: A string in C syntax, which is equivalent to a loop of type loop_type with a loop condition depending on loop_iterations and condition and loop_content as the body.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">loop</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="n">body</span> <span class="o">=</span> <span class="n">loop_content</span><span class="o">.</span><span class="n">body</span>
+        <span class="k">if</span> <span class="n">loop_type</span> <span class="o">==</span> <span class="s1">&#39;for&#39;</span><span class="p">:</span>
+            <span class="n">loop</span> <span class="o">+=</span> <span class="s1">&#39;for(int i = 0; i &lt; </span><span class="si">%s</span><span class="s1">; i++) {</span><span class="se">\n\t\t\t</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">loop_iterations</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">loop_type</span> <span class="o">==</span> <span class="s1">&#39;while&#39;</span><span class="p">:</span>
+            <span class="n">loop</span> <span class="o">+=</span> <span class="s1">&#39;double error = 1;</span><span class="se">\n\t\t</span><span class="s1">&#39;</span>
+            <span class="n">loop</span> <span class="o">+=</span> <span class="s1">&#39;while (&#39;</span> <span class="o">+</span> <span class="bp">cls</span><span class="o">.</span><span class="n">inorder</span><span class="p">(</span><span class="n">condition</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;) {</span><span class="se">\n\t\t\t</span><span class="s2">&quot;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">loop</span> <span class="o">+=</span> <span class="s1">&#39;double error = 1;</span><span class="se">\n\t\t</span><span class="s1">&#39;</span>
+            <span class="n">loop</span> <span class="o">+=</span> <span class="s1">&#39;int counter = 0;</span><span class="se">\n\t\t</span><span class="s1">&#39;</span>
+            <span class="n">loop</span> <span class="o">+=</span> <span class="s1">&#39;while (&#39;</span> <span class="o">+</span> <span class="bp">cls</span><span class="o">.</span><span class="n">inorder</span><span class="p">(</span><span class="n">condition</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;) {</span><span class="se">\n\t\t\t</span><span class="s2">&quot;</span>
+            <span class="n">loop</span> <span class="o">+=</span> <span class="s1">&#39;counter++;</span><span class="se">\n\t\t\t</span><span class="s1">&#39;</span>
+
+        <span class="n">loop</span> <span class="o">+=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">generate_loop_body</span><span class="p">(</span><span class="n">body</span><span class="p">,</span> <span class="n">loop_type</span><span class="p">)</span>
+        <span class="n">loop</span> <span class="o">+=</span> <span class="s1">&#39;}</span><span class="se">\n\t\t</span><span class="s1">&#39;</span>
+        <span class="k">return</span> <span class="n">loop</span>
+
+    <span class="k">def</span> <span class="nf">generate_loop_body</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">body</span><span class="p">,</span> <span class="n">loop_type</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Generate C-code for the loop body.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            body (sympy.codegen.ast.CodeBlock): Code block containing sympy expressions for the loop body.</span>
+<span class="sd">            loop_type (str):   Type of the generated loop (&#39;for&#39;, &#39;while&#39;, &#39;both&#39;, &#39;counter&#39;). &#39;both&#39; and &#39;counter&#39; are treated the same as the default.</span>
+<span class="sd">        Returns:</span>
+<span class="sd">               str: A string in C syntax, which implements the loop body for the given sympy expressions.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">loop</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+        <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">body</span><span class="o">.</span><span class="n">_sorted_args</span><span class="p">:</span>
+            <span class="c1"># for loop does not need to calculate error bacause convergence doesn&#39;t matter then</span>
+            <span class="k">if</span> <span class="n">loop_type</span> <span class="o">==</span> <span class="s1">&#39;for&#39;</span> <span class="ow">and</span> <span class="nb">str</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">lhs</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;error&#39;</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="c1"># LHS</span>
+            <span class="n">loop</span> <span class="o">+=</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1"> = &#39;</span> <span class="o">%</span> <span class="n">a</span><span class="o">.</span><span class="n">lhs</span>
+            <span class="c1"># RHS</span>
+            <span class="n">loop</span> <span class="o">+=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">inorder</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">rhs</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;;</span><span class="se">\n\t\t\t</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">loop</span>
+
+    <span class="k">def</span> <span class="nf">generate_print_code</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">variables</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Generate Code used for printing.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str: C-Code printing the step results of the last step to a file.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Count variables where the timestep index is 1</span>
+        <span class="n">num_equations</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">a</span><span class="p">:</span> <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">,</span> <span class="n">variables</span><span class="p">))</span>
+
+        <span class="n">str_mainloop</span> <span class="o">=</span> <span class="s2">&quot;/*writing the new calculated values into the output csv file*/</span><span class="se">\n\t\t</span><span class="s2">&quot;</span>
+        <span class="n">str_mainloop</span> <span class="o">+=</span> <span class="s2">&quot;printf(</span><span class="se">\&quot;</span><span class="si">%e</span><span class="s2">&quot;</span>
+        <span class="n">str_mainloop</span> <span class="o">+=</span> <span class="s2">&quot; </span><span class="si">%e</span><span class="s2">&quot;</span> <span class="o">*</span> <span class="n">num_equations</span>
+        <span class="n">str_mainloop</span> <span class="o">+=</span> <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">n</span><span class="se">\&quot;</span><span class="s2"> , (step+1)*deltaT&quot;</span>
+        <span class="c1"># write the timestep_specific_variables (with timestep offset 1) in the correct order</span>
+        <span class="c1"># THIS ASSUMES THAT THE ORDER OF timestep_specific_variables is still the same as at its initialisation in the discretization stage (given in python 3.6 and higher)</span>
+        <span class="k">for</span> <span class="n">curr_var</span><span class="p">,</span> <span class="n">tup</span> <span class="ow">in</span> <span class="n">variables</span><span class="p">:</span>
+            <span class="c1"># Case timestep offset = 1</span>
+            <span class="k">if</span> <span class="n">tup</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">str_mainloop</span> <span class="o">+=</span> <span class="s2">&quot;, </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">curr_var</span>
+            <span class="c1"># Case timestep offset = 0</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">continue</span>
+        <span class="n">str_mainloop</span> <span class="o">+=</span> <span class="s2">&quot;);</span><span class="se">\n\t\t</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">str_mainloop</span>
+
+    <span class="k">def</span> <span class="nf">correct_datatype</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">line</span><span class="p">,</span> <span class="n">datatype</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Apply string replacements to make the code use the specified datatype.</span>
+
+<span class="sd">        Can be used for any C or C++ code or similar. Can be extended to other datatypes than the current ones.</span>
+<span class="sd">        Implements + overrides correct_datatype(line, datatype) from EquationTranspiler.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            line (str): Line of code that will be adapted.</span>
+<span class="sd">            datatype (str): Datatype that should be used (&quot;double&quot; or &quot;float&quot;).</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            str: The adapted line of code.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;double&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;fpn&gt;&#39;</span><span class="p">)</span>
+        <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;float&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;fpn&gt;&#39;</span><span class="p">)</span>
+        <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;&lt;fpn&gt;&#39;</span><span class="p">,</span> <span class="n">datatype</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">datatype</span> <span class="o">==</span> <span class="s1">&#39;double&#39;</span><span class="p">:</span>
+            <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;stof&#39;</span><span class="p">,</span> <span class="s1">&#39;stod&#39;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">datatype</span> <span class="o">==</span> <span class="s1">&#39;float&#39;</span><span class="p">:</span>
+            <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;stod&#39;</span><span class="p">,</span> <span class="s1">&#39;stof&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">datatype</span> <span class="o">==</span> <span class="s1">&#39;double&#39;</span><span class="p">:</span>
+            <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;stof&#39;</span><span class="p">,</span> <span class="s1">&#39;stod&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">datatype</span> <span class="o">==</span> <span class="s1">&#39;float&#39;</span><span class="p">:</span>
+            <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%lf</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="si">%f</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">line</span>
+
+    <span class="k">def</span> <span class="nf">generate_assignment</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">equation</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Generates one statement in C code implementing the equation.</span>
+
+<span class="sd">        Note:</span>
+<span class="sd">            ``equation`` is treated as an assignment, meaning that``Eq(x, 2*x+1)`` will be converted to</span>
+<span class="sd">            ``x=2*x+1`` and not to ``x=-1`` or ``x==2*x+1``.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            equation (sympy.core.relational.Equality): An equation of the form &#39;Eq(symbol, expression)&#39;.</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            str: A string with C-code for the assignment.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># LHS - by construction only a single symbol, representing</span>
+        <span class="c1"># a timestep_specific_variable, a parameter or a Runge Kutta stage</span>
+        <span class="n">assignment</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2"> = &quot;</span> <span class="o">%</span> <span class="n">equation</span><span class="o">.</span><span class="n">lhs</span>
+
+        <span class="c1"># RHS</span>
+        <span class="n">assignment</span> <span class="o">+=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">inorder</span><span class="p">(</span><span class="n">equation</span><span class="o">.</span><span class="n">rhs</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;;</span><span class="se">\n\t\t</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">assignment</span>
+
+    <span class="k">def</span> <span class="nf">declare_local_variable</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">curr_lhs</span><span class="p">,</span> <span class="n">datatype</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return C-code that declares curr_lhs as a local variable of type datatype.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># if curr_lhs is not the symbol for an array element, declare curr_lhs as a local variable</span>
+        <span class="k">if</span> <span class="s1">&#39;[&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">curr_lhs</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">f</span><span class="s1">&#39;</span><span class="se">\t\t</span><span class="s1"> </span><span class="si">{datatype}</span><span class="s1"> </span><span class="si">{curr_lhs}</span><span class="s1">;</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="k">return</span> <span class="s1">&#39;&#39;</span>
+
+    <span class="k">def</span> <span class="nf">declare_RK_array</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">array_name</span><span class="p">,</span> <span class="n">datatype</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return C-code that declares an array containing the Runge-Kutta stage values.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2"> </span><span class="si">%s</span><span class="s2"> [2 * num_equations * block_size];</span><span class="se">\n\t\t</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">datatype</span><span class="p">,</span> <span class="n">array_name</span><span class="p">)</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Anna Mittermair
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

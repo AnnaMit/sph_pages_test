@@ -1,0 +1,243 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Config &mdash; tidowa  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> tidowa
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../start.html">First steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html#discretization">Discretization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html#code-generation">Code Generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html#compilation">Compilation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html#execution">Execution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage.html#first-steps">First steps</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">tidowa</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Module code</a> &raquo;</li>
+        
+      <li>Config</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for Config</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">sympy</span> <span class="k">as</span> <span class="nn">sp</span>
+
+
+<div class="viewcode-block" id="Config"><a class="viewcode-back" href="../Config.html#Config.Config">[docs]</a><span class="k">class</span> <span class="nc">Config</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Class for configuration objects that hold configuration parameters for discretization.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="Config.__init__"><a class="viewcode-back" href="../Config.html#Config.Config.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ex</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Read the configuration parameters from ex and builds a config object for them.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            ex (types.ModuleType):   Module (=record file) of the config variable.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># --- PARAMETER ---</span>
+        <span class="c1"># creating a list of placeholder parameter c_i, that can be reverted to their original name via @parameterlookuptable</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parameterlookuptable</span> <span class="o">=</span> <span class="n">ex</span><span class="o">.</span><span class="n">parameternames</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+
+        <span class="c1"># self.parameter = symbols(&quot;c_(1:%d)&quot; % (len(self.parameterlookuptable) + 1))</span>
+        <span class="c1">#</span>
+        <span class="c1"># parameter_dict_builder = []</span>
+        <span class="c1"># for i in range(len(self.parameter)):</span>
+        <span class="c1">#     parameter_dict_builder.append((self.parameter[i], i))</span>
+        <span class="c1"># self.parameter_index_dict = dict(parameter_dict_builder)     #associates parameter with their specific index for various lists ,i.e. parameterlookuptable</span>
+        <span class="c1">#</span>
+
+        <span class="c1"># --- VARIABLES ---</span>
+        <span class="n">t</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Symbol</span><span class="p">(</span><span class="s2">&quot;t&quot;</span><span class="p">)</span>
+        <span class="c1"># creating a list of placeholder variables x_i, that can be reverted to their original name via @variablelookuptable</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">variablelookuptable</span> <span class="o">=</span> <span class="n">ex</span><span class="o">.</span><span class="n">variablenames</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">orig_variables</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="n">ex</span><span class="o">.</span><span class="n">variablenames</span><span class="p">,</span> <span class="bp">cls</span><span class="o">=</span><span class="n">sp</span><span class="o">.</span><span class="n">Function</span><span class="p">)</span>
+
+        <span class="n">timeindep_variables</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s2">&quot;x_(1:</span><span class="si">%d</span><span class="s2">)&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">variablelookuptable</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="bp">cls</span><span class="o">=</span><span class="n">sp</span><span class="o">.</span><span class="n">Function</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">variables</span> <span class="o">=</span> <span class="p">()</span>
+        <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">timeindep_variables</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">variables</span> <span class="o">+=</span> <span class="p">(</span><span class="n">v</span><span class="p">(</span><span class="n">t</span><span class="p">),)</span>
+
+        <span class="c1"># Build a dictionary, that refers variables to the index of their original name in orig_variables</span>
+        <span class="n">variables_dict_builder</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">variables</span><span class="p">):</span>
+            <span class="n">variables_dict_builder</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">v</span><span class="p">,</span> <span class="n">i</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">variables_index_dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+            <span class="n">variables_dict_builder</span><span class="p">)</span>  <span class="c1"># associates variables with their specific index for various lists ,i.e. variablelookuptable</span>
+
+        <span class="c1"># Saving methods is not yet used in any Transpiler Code, but can be useful in the future to decide, which formula/x_i_value has to be calculated first</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">methods</span> <span class="o">=</span> <span class="n">ex</span><span class="o">.</span><span class="n">methods</span></div></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Anna Mittermair
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,7 @@
+cuda\_transpiler module
+=======================
+
+.. automodule:: cuda_transpiler
+   :members:
+   :undoc-members:
+   :show-inheritance:

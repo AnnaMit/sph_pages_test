@@ -1,0 +1,424 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Usage &mdash; tidowa  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Overview" href="overview.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> tidowa
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="start.html">First steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html#discretization">Discretization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html#code-generation">Code Generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html#compilation">Compilation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html#execution">Execution</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#first-steps">First steps</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#setup">(0) Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#instructions-on-how-to-use-the-odeintegrator">(1) Instructions on how to use the ODEIntegrator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#stage-discretization">(1.1) 1. Stage: Discretization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#stage-code-generation">(1.2) 2. Stage: Code-Generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#stage-execution">(1.3) 3. Stage: Execution</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#example-of-a-full-program-use-cycle">(2) Example of a full program use cycle</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">tidowa</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Usage</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/usage.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="usage">
+<h1>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="first-steps">
+<h1>First steps<a class="headerlink" href="#first-steps" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="setup">
+<h2>(0) Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
+<dl class="simple">
+<dt>0.1 Get required application + libraries:</dt><dd><p>…</p>
+</dd>
+</dl>
+<p>0.2 Before startup: Insert/change necessary paths in compiler_configs.ini and Makefile</p>
+<p>0.3 Testing:</p>
+<ul class="simple">
+<li><p>Change/add data or record files (found in data and tests folders).</p></li>
+<li><p>Execution of some parts, plotting and unit tests are possible using the Makefile.</p></li>
+<li><p>The main_debug file has functionalities for some systematic testing, running and changing the configuration of single tests, simple plotting and simple time measurement and correctness tests. -&gt; For basic info on how to use program functions or simple testing start at these two points (or in any file starting with main).</p></li>
+</ul>
+</div>
+<div class="section" id="instructions-on-how-to-use-the-odeintegrator">
+<h2>(1) Instructions on how to use the ODEIntegrator<a class="headerlink" href="#instructions-on-how-to-use-the-odeintegrator" title="Permalink to this headline">¶</a></h2>
+<p>These instructions will guide you through the different stages of the program and show you
+how to fit your own data into the program, so that your ODE will be integrated correctly.
+The first thing you should do is open a command shell and move into the program repository
+“ODEintegrationDSL”.
+Before every new use of the Program use the “make clean” command to clean all discretized
+records and generated code.</p>
+<div class="section" id="stage-discretization">
+<h3>(1.1) 1. Stage: Discretization<a class="headerlink" href="#stage-discretization" title="Permalink to this headline">¶</a></h3>
+<p>To use the program for your own ODE or System of ode navigate to the “data/disc/” directory
+and edit the file “configuration_template.py”. In this file you will probably find the Implemen-
+tation of the previous used ODE. Fill the variables in this file with your specific data in the
+following way:
+Make sure to import the “sympy” library at the start of your file as follows:
+import sympy as sp
+parameternames: This is a string with all parameter appearing in your ODE, seperated
+by whitespaces. Be sure to also declare these parameters seperated by commas on the left side
+of the next line.
+Example. An ODE with two parameter “lambda1” and “lambda2” needs a config containing:
+parameternames = “lambda1 lambda2”
+lambda1, lambda2 = sp.symbols(parameternames)
+Do not change the variable declaration of t!
+variablenames: Similar to parameternames, this is a string with all variables appearing in
+your ODE, seperated by whitespaces. Be sure to also declare these variables seperated by com-
+mas on the left side of the next line.
+Example. An ODE with two variables “u” and “v” needs a config containing:
+variablenames = “u v”
+u, v = sp.symbols(variablenames, cls=sp.Function)
+ode: This is a tuple of sympy Equality-Objects, which are created by calling Eq() with the right
+functionparameter. The Equality class is initialized with two functionparameter called lhs and
+rhs. An object Eq(lhs, rhs) symbolizes a mathematical equation of form “lhs = rhs”. Make sure
+to only use parameter that you defined before. Make sure to write every variable depending on
+“t” (i.e. v(t)). Make sure you only use arithmetic operators, not sympy classes. Make sure to
+only enter equations of the form:
+y0 (t) = f (t, y(t))
+First order derivatives are symbolized with sympy in the form: y(t).diff(t)
+Example. An ODE with the parameter and variables of the two examples above and the two
+equations:
+u0 (t) = −lambda1 ∗ v(t)
+v 0 (t) = lambda2 ∗ u(t) + 1
+Then the config to this ODE should be containing:
+ode = (
+sp.Eq(u(t).diff(t), -lambda1*v(t)),
+sp.Eq(v(t).diff(t), lambda2*u(t) + 1),
+)
+methods: This is a tuple containing the methods used for integrating each single equation in
+the ODE. The methods are defined as a string and the indexing of these variables corresponds
+to the indexing of the equations in the ode-variable. The currently implemented integration
+methods are: “ExplicitEuler”, “RungeKutta1” (Explicit Euler), “RungeKutta2” (Midpoint),
+RungeKutta “RungeKutta4”(RK4), “Heun” and “Midpoint” .
+Example. If the first equation of the ODE from the examples above should be integrated with
+the explicit Euler method and the second with a 4th order Runge-Kutta, then this needs a
+config containing:
+methods = (
+“ExplicitEuler”,
+“RungeKutta”,
+)
+If you want to use the Operator Splitting techniques make sure you write the splitting me-
+thod you want to use first and then the two methods you want to integrate the split up terms
+with, each seperated by whitespaces. The Operator splitting does only work if you have an
+addition as the mathematically last evaluated operation. The operator splitting will split the
+term on the left most addend and the rest of the addends. It is not possible to use an operator
+splitting technique recursively (i.e. “OrdinarySplitting ExplicitEuler OrdinarySplitting Expli-
+citEuler ExplicitEuler”). Example. For the ODE of the examples above:
+methods = (
+“Midpoint”,
+“StrangSplitting ExplicitEuler ExplicitEuler”,
+)</p>
+<p>Do also make sure, that any sympy class, i.e. Symbol or Eq, called in your config is referenced
+with the correct prefix, as in the case of the examples sp.
+You can also load preimplemented config-files, stored in the “data/disc/example_configurations/”
+directory, with the following command:
+# make load_config filepath=relative/path/to/file
+In Example for the config of all the examples above combined (with some minor differences)
+enter the command:
+# make load_config filepath=oscillating/config_osc.py
+The discretization stage will produce a record in the directory “data/codegen/discrete_records/”.
+The next stage (code-generation) will use the record in here called “record_1.py”. If there are
+any records in here from previous program runs, which you don’t need anymore be sure to call:
+# make clean_records
+If you are pleased with your “config_template.py” you can complete the discretization sta-
+ge by calling:
+# make discretize
+This command will run the file “main_disc.py” which is responsible for everything, that hap-
+pens in the discretization stage. If you want to change the length of the timesteps used in the
+discretization, you are allowed to edit this file at line 42, which should say:
+dT = &lt;value&gt;
+Please do not edit anything else in this file unless you are a developer of this program. The
+value of the timesteplength is hard-coded for now, but will hopefully be dynamically calculated
+in future versions of the program.
+If you have hit the “make discretize” command and no error occured, the discretization sta-
+ge is completed and there should be a new record (i.e. “record_1.py”) in the directory “da-
+ta/disc/discrete_records”. This new file contains the discretized version of your ODE, as well
+as some variable declarations.</p>
+</div>
+<div class="section" id="stage-code-generation">
+<h3>(1.2) 2. Stage: Code-Generation<a class="headerlink" href="#stage-code-generation" title="Permalink to this headline">¶</a></h3>
+<p>After completing the discretization stage, there should be a new record in the directory “da-
+ta/disc/discretized_records”. These records yield all the information needed to start the Code-
+Generator. Make sure, that the record you want to generate code for is called “record_1.py”, as
+only the record with this name will be used by the Code-Generator. Similar to the dT variable
+in the discretization stage, there exists a variable nsteps in the file “main_codegen.py” at line
+13, which should say:
+nsteps = &lt;value&gt;
+This variable defines, how many timesteps the ODE is integrated for and can be manually set
+to arbitrary positive integer value. Just like the dT variable, this is supposed to be chosen
+dynamically in the future.
+If you are sure, that the record is named correctly you can start the Code-Generator using
+the following command:
+# make generate
+Currently there is only one Code-Generator available, which writes C-Code. Future version will
+let you specify, what language/Hardware this stage should generate code for.
+If you have hit the “make generate” command and no error occured, there should be a new
+C-file in the directory “src/exec/ccode/”, named “calc_func.c”. This file implements the calcu-
+lation of the values of all variables in your ODE.
+At this point, you should input a CSV-file into the program, containing the initialvalues, as
+well as the values of the parameter, specified in the “config_template.py”. The exact format of
+each line in this CSV-file is as follows:
+&lt;variablevalue1&gt; &lt;variablevalue2&gt; … ; &lt;parametervalue1&gt; &lt;parametervalue2&gt; …
+Example. An examplary line of the input CSV-file for the example of the discretization stage
+could be as follows:
+1 2 ; -1 1
+This would mean, that “u” has an initialvalue of 1, “v” has an initialvalue of 2, “lambda1” has
+a value of -1 and “lambda2” has a value of 1, assuming the exemplary “config_template.py”
+from the last section. Make sure, that the order of the values of the variables and parameter
+here, corresponds to the order of the variables and parameter in the “config_template.py” re-
+spectively.
+If you are done creating this input CSV-file, place it in the folder “data/exec/input/” and
+call it “input.csv”. The program will later search for a file named “input.csv” and load its con-
+tent line by line. You can also use already implemented input CSV-files (There exists one for
+each example config) by loading them from the “tests/test_input/” directory, with the follo-
+wing command:
+# make load_input filepath=path/to/input/csv/file
+In Example for the ODE of all previous examples in this file:
+# make load_input filepath=tests/test_input/test_input_osc.csv</p>
+</div>
+<div class="section" id="stage-execution">
+<h3>(1.3) 3. Stage: Execution<a class="headerlink" href="#stage-execution" title="Permalink to this headline">¶</a></h3>
+<p>This stage mostly consists of the “make” commands, as it exists for compiling and executing
+the program. If you have completed the first two stages, there should now exist a file, containing
+the Code to calculate all variable values (i.e. “calc_func.c”).
+To complete the execution stage type the following command:
+# make C filepath=path/to/input/csv/file
+As the program will grow, there will be multiple languages here to choose from, but for now we
+concentrate on C. The program will now first compile all C files necessary for the calculations,
+using the “gcc” Compiler. This will create an executable called “c_main_exec” in the “build/”
+directory.
+After the compilation the executable will be automatically run taking the CSV-file specified
+after “filepath” as command line argument. If you did not specify the “filepath” option (i.e.
+“make C”), the program will take the file named “input.csv” in the “data/exec/input/” direc-
+tory.
+If you do not delete the “c_main_exec” file, the next call of “make C” will skip compiling the
+code again and directly run the executable.
+The execution of the program will create a number of files equal to the number of lines in
+your input CSV-file. Each of these files contains lines with the chronologically ordered time -
+variablevalues pairs in CSV-format. The numbering of these files corresponds to the index of
+the line (starting with 0) in the input CSV-file, which has created this output. In Example the
+third line of an input CSV-file will create a data output file called “2_data.csv”.
+Finally you can plot the output data using the following command:
+# make plot filepath=path/to/output/data against=yes/no var=variablelist
+If filepath is left empty the plotter will use the file called “0_data.csv” in the “data/exec/output/”
+directory. The “var” option can be used to specify, which variables to plot. Define them as a
+string, with each variable seperated by a whitespace. For Example if you want to plot the va-
+riables “u” and “v” then use the command:
+# make plot var=“u v”
+The plotter will then plot each of these variables against the time (t) in a seperate window. If
+the “var” option is not specified all variables will be plotted against time.
+You can also use the “against” option if you want to specify two variables against each other
+and not against time. To do this use “against=yes” and specify exactly two variables in the
+“var” option. For example if you want to plot “u” against “v” use the command:
+# make plot against=yes var=“u v”
+The “against” option is set to “no” by default.
+To clean up for the next use of the program you can use the clean commands in the make
+file. For example “make clean” cleans up any records from the discretization stage, code produ-
+ced in the code generation stage, and output and executables generated in the execution stage.</p>
+</div>
+</div>
+<div class="section" id="example-of-a-full-program-use-cycle">
+<h2>(2) Example of a full program use cycle<a class="headerlink" href="#example-of-a-full-program-use-cycle" title="Permalink to this headline">¶</a></h2>
+<p>The following bashcode describes a full exemplary use cycle of the program:
+# make clean
+# make load_config filepath=oscillating/config_osc.py
+# make load_input filepath=tests/test_input/test_input_osc.csv
+# make discretize
+# make generate
+# make C
+# make plot against=yes var=“u v”</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="overview.html" class="btn btn-neutral float-left" title="Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Anna Mittermair
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

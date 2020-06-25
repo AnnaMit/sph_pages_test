@@ -1,0 +1,276 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>opencl_transpiler &mdash; tidowa  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> tidowa
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../start.html">First steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html#discretization">Discretization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html#code-generation">Code Generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html#compilation">Compilation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html#execution">Execution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage.html#first-steps">First steps</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">tidowa</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Module code</a> &raquo;</li>
+        
+      <li>opencl_transpiler</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for opencl_transpiler</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">sympy</span> <span class="k">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">src.codegen.EquationTranspiler</span> <span class="k">import</span> <span class="n">CBased_EquationTranspiler</span>
+
+<span class="kn">from</span> <span class="nn">src.codegen.TemplateTranspiler</span> <span class="k">import</span> <span class="n">TemplateTranspiler</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">This file contains an implementation to automatically generate an ODE solver in OpenCL.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="OpenCL_Transpiler"><a class="viewcode-back" href="../opencl_transpiler.html#opencl_transpiler.OpenCL_Transpiler">[docs]</a><span class="k">class</span> <span class="nc">OpenCL_Transpiler</span><span class="p">(</span><span class="n">TemplateTranspiler</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Transpiler that generates OpenCL Code for numerical integration.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;##&#39;</span>
+    <span class="n">dir_name</span> <span class="o">=</span> <span class="s1">&#39;opencl&#39;</span>
+    <span class="n">vectorize</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">template_file_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;code_template.cpp&#39;</span><span class="p">:</span> <span class="s1">&#39;calc_func.cl&#39;</span><span class="p">,</span> <span class="s1">&#39;definitions.h&#39;</span><span class="p">:</span> <span class="s1">&#39;definitions.h&#39;</span><span class="p">,</span> <span class="s1">&#39;main.cpp&#39;</span><span class="p">:</span> <span class="s1">&#39;main.cpp&#39;</span><span class="p">}</span>
+    <span class="n">equation_transpiler_class</span> <span class="o">=</span> <span class="n">CBased_EquationTranspiler</span>
+    <span class="n">parameter_buffer</span> <span class="o">=</span> <span class="s1">&#39;localParameters&#39;</span>
+    <span class="n">result_buffer</span> <span class="o">=</span> <span class="s1">&#39;localBuffer&#39;</span>
+    <span class="n">intermediate_buffer</span> <span class="o">=</span> <span class="s1">&#39;v&#39;</span>
+
+<div class="viewcode-block" id="OpenCL_Transpiler.generate_config"><a class="viewcode-back" href="../opencl_transpiler.html#opencl_transpiler.OpenCL_Transpiler.generate_config">[docs]</a>    <span class="k">def</span> <span class="nf">generate_config</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Call the superclasses generate_config and additionally set t0 and generates the step assignment code.</span>
+
+<span class="sd">        Overrides TemplateTranspilers generate_config.</span>
+
+<span class="sd">        TODO:</span>
+<span class="sd">            To make t0 selectable make a change here.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;t0&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">generate_step_assignments</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="OpenCL_Transpiler.generate_step_assignments"><a class="viewcode-back" href="../opencl_transpiler.html#opencl_transpiler.OpenCL_Transpiler.generate_step_assignments">[docs]</a>    <span class="k">def</span> <span class="nf">generate_step_assignments</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Generate code for assigning the solutions for the current timestep to the variables.</span>
+
+<span class="sd">        Adds the code to the config with key &#39;assignments&#39;.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">final_assignments</span> <span class="o">=</span> <span class="s1">&#39;Final assignments&#39;</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rec</span><span class="o">.</span><span class="n">variablelookuptable</span><span class="p">)):</span>
+            <span class="n">final_assignments</span> <span class="o">+=</span> <span class="s1">&#39;</span><span class="se">\n\t</span><span class="si">%s</span><span class="s1">[</span><span class="si">%s</span><span class="s1">] = </span><span class="si">%s</span><span class="s1">[</span><span class="si">%s</span><span class="s1">];&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">result_buffer</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">intermediate_buffer</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;assignments&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">final_assignments</span></div>
+
+
+<div class="viewcode-block" id="OpenCL_Transpiler.adapt_parameter_name"><a class="viewcode-back" href="../opencl_transpiler.html#opencl_transpiler.OpenCL_Transpiler.adapt_parameter_name">[docs]</a>    <span class="k">def</span> <span class="nf">adapt_parameter_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parameter_count</span><span class="p">,</span> <span class="n">variable_name</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Change the parameter names from names (e.g. rho) to array entries (e.g. p[0]).</span>
+
+<span class="sd">        Call array_element_symbol to generate and return a string of form::</span>
+
+<span class="sd">         &#39;variable_name = Symbol(&quot;parameter_buffer[parameter_count]&quot;)&#39;</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            parameter_count (int): Index of the parameter.</span>
+<span class="sd">            variable_name (str):   New name of array for the parameters.</span>
+<span class="sd">         &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">array_element_symbol</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">parameter_count</span><span class="p">),</span> <span class="n">OpenCL_Transpiler</span><span class="o">.</span><span class="n">parameter_buffer</span><span class="p">,</span>
+                                    <span class="n">variable_name</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="OpenCL_Transpiler.adapt_variable_name"><a class="viewcode-back" href="../opencl_transpiler.html#opencl_transpiler.OpenCL_Transpiler.adapt_variable_name">[docs]</a>    <span class="k">def</span> <span class="nf">adapt_variable_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">time_offset</span><span class="p">,</span> <span class="n">variable_name</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return a string that assigns the variable with the original name a sympy symbol with the new name.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            index (int):   Index of the variable (e.g. 1 for x_1).</span>
+<span class="sd">            time_offset (int): Time offset of the variable (see record file for the ODE system).</span>
+<span class="sd">            variable_name (str):   New name of array for the parameters.</span>
+
+<span class="sd">        TODO:</span>
+<span class="sd">            Deal with methods that look at more than 1 past steps at the same time here!</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">time_offset</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">array_element_symbol</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">index</span><span class="p">),</span> <span class="n">OpenCL_Transpiler</span><span class="o">.</span><span class="n">intermediate_buffer</span><span class="p">,</span> <span class="n">variable_name</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">array_element_symbol</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">index</span><span class="p">),</span> <span class="n">OpenCL_Transpiler</span><span class="o">.</span><span class="n">result_buffer</span><span class="p">,</span> <span class="n">variable_name</span><span class="p">)</span></div></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Anna Mittermair
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,255 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>About Transpilers &mdash; tidowa  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> tidowa
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="start.html">First steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html#discretization">Discretization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html#code-generation">Code Generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html#compilation">Compilation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html#execution">Execution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html#first-steps">First steps</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">tidowa</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>About Transpilers</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/developer.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="about-transpilers">
+<h1>About Transpilers<a class="headerlink" href="#about-transpilers" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="the-transpiling-process">
+<h2>The Transpiling Process<a class="headerlink" href="#the-transpiling-process" title="Permalink to this headline">¶</a></h2>
+<p>Input:
+Adapt:
+Transpile:
+Output:</p>
+</div>
+<div class="section" id="adding-new-transpilers">
+<h2>Adding new transpilers<a class="headerlink" href="#adding-new-transpilers" title="Permalink to this headline">¶</a></h2>
+<p>The Transpiler class provides an inteface for all transpiler instances. Every new transpiler must be a subclass of it.
+It must implement the … method
+To make implicit methods possible, … mus be implemented.
+An example transpiler is Simple_C_Transpiler.
+All in all, a new transpiler must look like this
+Name, erbt von Transpiler, methoden/properties</p>
+</div>
+<div class="section" id="transpilers-using-a-code-template">
+<h2>Transpilers using a code template<a class="headerlink" href="#transpilers-using-a-code-template" title="Permalink to this headline">¶</a></h2>
+<p>There is also an interface for transpilers that use a code template as a basis for generated code.
+This is given by the TemplateTranspiler class. Examples that use this are the C_Transpiler or the OMP_Transpiler.
+As a subclass of Transpiler these transpilers must also implement the … methods.
+Additionally, the following methods and properties must be implemented:
+…</p>
+<p>The following members can be changed for changes in functionality.</p>
+<p>The template transpilers use an additional equation transpiler that provides an interface for generating code for the mathematical expressions.
+All existing transpilers are for C-based languages and use the same C_Based_Equation_Transpiler.
+An equation transpiler must implement the following methods.</p>
+</div>
+<div class="section" id="existing-transpilers">
+<h2>Existing Transpilers<a class="headerlink" href="#existing-transpilers" title="Permalink to this headline">¶</a></h2>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">omp_transpiler.OMP_Transpiler</span></code>([data_type, …])</p></td>
+<td><p>Transpiler that generates OpenMP C++-Code for numerical integration.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">opencl_transpiler.OpenCL_Transpiler</span></code>([…])</p></td>
+<td><p>Transpiler that generates OpenCL Code for numerical integration.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">c_transpiler.C_Transpiler</span></code>([data_type, …])</p></td>
+<td><p>Transpiler that generates C-Code for numerical integration.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">c_transpiler.Simple_C_Transpiler</span></code>(record[, …])</p></td>
+<td><p>Transpiler that generates C-Code for numerical integration.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="klassendiagramm">
+<h2>Klassendiagramm<a class="headerlink" href="#klassendiagramm" title="Permalink to this headline">¶</a></h2>
+<div class="graphviz"><img src="_images/inheritance-bb9a8d2f79aec8e0aeb0e3d0ae9ffe50a44845b7.png" alt="Inheritance diagram of omp_transpiler.OMP_Transpiler, opencl_transpiler.OpenCL_Transpiler, cuda_transpiler.CUDA_Transpiler, c_transpiler.C_Transpiler, c_transpiler.Simple_C_Transpiler" class="inheritance graphviz" /></div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Anna Mittermair
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

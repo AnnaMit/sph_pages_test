@@ -1,0 +1,10 @@
+Transpiler module
+=================
+
+
+.. currentmodule:: src.codegen
+
+.. automodule:: Transpiler
+   :members:
+   :undoc-members:
+   :show-inheritance:

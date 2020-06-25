@@ -1,0 +1,7 @@
+c\_transpiler module
+====================
+
+.. automodule:: c_transpiler
+   :members:
+   :undoc-members:
+   :show-inheritance:

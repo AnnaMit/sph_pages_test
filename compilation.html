@@ -1,0 +1,221 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Compilation &mdash; tidowa  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> tidowa
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="start.html">First steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html#discretization">Discretization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html#code-generation">Code Generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html#compilation">Compilation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html#execution">Execution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html#first-steps">First steps</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">tidowa</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Compilation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/compilation.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="compilation">
+<h1>Compilation<a class="headerlink" href="#compilation" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><strong>Input:</strong> Code.</p></li>
+<li><p><strong>Options:</strong> …</p></li>
+<li><p><strong>Output:</strong> Executable code.</p></li>
+<li><p><strong>Script for executing stage:</strong> main_compile</p></li>
+</ul>
+<p>Compilation is done by CompileInstance objects each having a CodeType and a Compiler attribute that contain information like file paths and flags that are needed for compilation.</p>
+<p>To use additional compilers or code types add corresponding classes / subclasses and if neccessary extend the implementation of CompileInstance for additional functionalities.</p>
+<div class="graphviz"><img src="_images/inheritance-b10c87523ef20bc5f578c6104407c1737db10e34.png" alt="Inheritance diagram of CUDA, OpenCL, C, C2, OpenMP, GNU, Intel, NVCC" usemap="#inheritance76e9228b99" class="inheritance graphviz" /></div>
+<map id="inheritance76e9228b99" name="inheritance76e9228b99">
+<area shape="rect" id="node3" href="main_compile.html#main_compile.CodeType" target="_top" title="CodeType" alt="" coords="240,79,323,104"/>
+<area shape="rect" id="node6" href="main_compile.html#main_compile.Compiler" target="_top" title="Interface class; all specific compilers are subclasses of this." alt="" coords="533,79,611,104"/>
+<area shape="rect" id="node2" href="main_compile.html#main_compile.C" target="_top" title="C" alt="" coords="5,152,77,177"/>
+<area shape="rect" id="node4" href="main_compile.html#main_compile.C2" target="_top" title="C2" alt="" coords="101,152,173,177"/>
+<area shape="rect" id="node5" href="main_compile.html#main_compile.CUDA" target="_top" title="CUDA" alt="" coords="197,152,269,177"/>
+<area shape="rect" id="node10" href="main_compile.html#main_compile.OpenCL" target="_top" title="OpenCL" alt="" coords="293,152,365,177"/>
+<area shape="rect" id="node11" href="main_compile.html#main_compile.OpenMP" target="_top" title="OpenMP" alt="" coords="389,152,464,177"/>
+<area shape="rect" id="node7" href="main_compile.html#main_compile.GNU" target="_top" title="GNU" alt="" coords="488,152,560,177"/>
+<area shape="rect" id="node8" href="main_compile.html#main_compile.Intel" target="_top" title="Intel" alt="" coords="584,152,656,177"/>
+<area shape="rect" id="node9" href="main_compile.html#main_compile.NVCC" target="_top" title="NVCC" alt="" coords="680,152,752,177"/>
+</map><p>.</p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Anna Mittermair
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

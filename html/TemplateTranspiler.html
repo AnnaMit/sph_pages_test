@@ -1,0 +1,433 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>TemplateTranspiler module &mdash; tidowa  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> tidowa
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="start.html">First steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html#discretization">Discretization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html#code-generation">Code Generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html#compilation">Compilation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html#execution">Execution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html#first-steps">First steps</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">tidowa</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>TemplateTranspiler module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/TemplateTranspiler.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-TemplateTranspiler">
+<span id="templatetranspiler-module"></span><h1>TemplateTranspiler module<a class="headerlink" href="#module-TemplateTranspiler" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="TemplateTranspiler.TemplateTranspiler">
+<em class="property">class </em><code class="sig-prename descclassname">TemplateTranspiler.</code><code class="sig-name descname">TemplateTranspiler</code><span class="sig-paren">(</span><em class="sig-param">data_type='float'</em>, <em class="sig-param">record_filename='data.codegen.discrete_records.record_1'</em>, <em class="sig-param">loop_type='config'</em>, <em class="sig-param">code_output_directory=None</em>, <em class="sig-param">output_directory='../data/exec/output'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/TemplateTranspiler.html#TemplateTranspiler"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#TemplateTranspiler.TemplateTranspiler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">src.codegen.Transpiler.Transpiler</span></code></p>
+<p>Abstract base class for for transpilers generating code for a specific language by modifying a template.</p>
+<p>Subclasses are required to implement all abstract functions and properties (see comments below).</p>
+<dl class="method">
+<dt id="TemplateTranspiler.TemplateTranspiler.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">data_type='float'</em>, <em class="sig-param">record_filename='data.codegen.discrete_records.record_1'</em>, <em class="sig-param">loop_type='config'</em>, <em class="sig-param">code_output_directory=None</em>, <em class="sig-param">output_directory='../data/exec/output'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/TemplateTranspiler.html#TemplateTranspiler.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#TemplateTranspiler.TemplateTranspiler.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Base constructor for TemplateTranspiler objects. Extends the constructor of base class Transpiler.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data_type</strong> (<em>str</em>) – Datatype that should be used in the code. Default is ‘float’.</p></li>
+<li><p><strong>record_filename</strong> (<em>types.ModuleType</em>) – Module containing the discretized ODE system.</p></li>
+<li><p><strong>loop_type</strong> (<em>str</em>) – Type of the loop used for iteration in implicit integration methods (ignored otherwise).
+Default is ‘config’. Other possibilities: ‘for’, ‘both’, ‘while’, ‘counter’.</p></li>
+<li><p><strong>code_output_directory</strong> (<em>str</em>) – Path to the directory where the generated code files should be saved.
+Default is None.</p></li>
+<li><p><strong>output_directory</strong> (<em>str</em>) – Path of the directory of the default file for the integrated solution.
+Default is ‘../data/exec/output’.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="TemplateTranspiler.TemplateTranspiler.marker">
+<em class="property">abstract property </em><code class="sig-name descname">marker</code><a class="headerlink" href="#TemplateTranspiler.TemplateTranspiler.marker" title="Permalink to this definition">¶</a></dt>
+<dd><p>Marker that indicates a part of the template that needs to be replaced by generated code.</p>
+<p>These parts begin and end with marker.</p>
+<p class="rubric">Example</p>
+<p><code class="docutils literal notranslate"><span class="pre">marker</span> <span class="pre">=</span> <span class="pre">'##'</span></code> causes <code class="docutils literal notranslate"><span class="pre">##</span> <span class="pre">example</span> <span class="pre">##</span></code> to be replaced by the value of <code class="docutils literal notranslate"><span class="pre">config['example']</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="TemplateTranspiler.TemplateTranspiler.dir_name">
+<em class="property">abstract property </em><code class="sig-name descname">dir_name</code><a class="headerlink" href="#TemplateTranspiler.TemplateTranspiler.dir_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of the subdirectory of <code class="docutils literal notranslate"><span class="pre">src/exec</span></code> where the code should be generated, e.g. <code class="docutils literal notranslate"><span class="pre">c</span></code> or <code class="docutils literal notranslate"><span class="pre">openmp</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="TemplateTranspiler.TemplateTranspiler.template_file_dict">
+<em class="property">abstract property </em><code class="sig-name descname">template_file_dict</code><a class="headerlink" href="#TemplateTranspiler.TemplateTranspiler.template_file_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dictionary of template file paths and the paths and the corresponding paths where target files should be generated.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="TemplateTranspiler.TemplateTranspiler.equation_transpiler_class">
+<em class="property">abstract property </em><code class="sig-name descname">equation_transpiler_class</code><a class="headerlink" href="#TemplateTranspiler.TemplateTranspiler.equation_transpiler_class" title="Permalink to this definition">¶</a></dt>
+<dd><p>The class implementing the conversion of the sympy equations into code.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>An allias of the class.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>src.codegen.EquationTranspiler.EquationTranspiler</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="TemplateTranspiler.TemplateTranspiler.vectorize">
+<em class="property">property </em><code class="sig-name descname">vectorize</code><a class="headerlink" href="#TemplateTranspiler.TemplateTranspiler.vectorize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bool value indicating whether the generated code should be adapted to facilitate vectorization.</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>This includes approximations for some functions and might change the integrated results!</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="TemplateTranspiler.TemplateTranspiler.adapted_record_file">
+<em class="property">property </em><code class="sig-name descname">adapted_record_file</code><a class="headerlink" href="#TemplateTranspiler.TemplateTranspiler.adapted_record_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>The file where the adapted record is saved.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="TemplateTranspiler.TemplateTranspiler.print_results">
+<em class="property">property </em><code class="sig-name descname">print_results</code><a class="headerlink" href="#TemplateTranspiler.TemplateTranspiler.print_results" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates whether during integration the results of every step are written to the console.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="TemplateTranspiler.TemplateTranspiler.generate_config">
+<em class="property">abstract </em><code class="sig-name descname">generate_config</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/TemplateTranspiler.html#TemplateTranspiler.generate_config"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#TemplateTranspiler.TemplateTranspiler.generate_config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add additional code modules and variables to <code class="docutils literal notranslate"><span class="pre">self.config</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="TemplateTranspiler.TemplateTranspiler.generate">
+<code class="sig-name descname">generate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/TemplateTranspiler.html#TemplateTranspiler.generate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#TemplateTranspiler.TemplateTranspiler.generate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate code implementing the system specified in <code class="docutils literal notranslate"><span class="pre">self.record</span></code>.</p>
+<p>This is done  loading code from the template files and replacing the sections marked with <code class="docutils literal notranslate"><span class="pre">self.marker</span></code>
+with data from <code class="docutils literal notranslate"><span class="pre">self.config</span></code> (discretized system) and <code class="docutils literal notranslate"><span class="pre">self.module_file</span></code></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="TemplateTranspiler.TemplateTranspiler.generate_loop">
+<code class="sig-name descname">generate_loop</code><span class="sig-paren">(</span><em class="sig-param">curr_eq</em>, <em class="sig-param">loop_type</em>, <em class="sig-param">loop_iterations</em>, <em class="sig-param">condition</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/TemplateTranspiler.html#TemplateTranspiler.generate_loop"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#TemplateTranspiler.TemplateTranspiler.generate_loop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate code to implement the loop specified in the parameters.</p>
+<p>The generated loop is a loop of type <code class="docutils literal notranslate"><span class="pre">loop_type</span></code> with a loop condition depending on <code class="docutils literal notranslate"><span class="pre">loop_iterations</span></code> and <code class="docutils literal notranslate"><span class="pre">condition</span></code>
+and <code class="docutils literal notranslate"><span class="pre">loop_content</span></code> as the body.
+This is an abstract method, which has to be implemented by every subclass of Transpiler. This method should
+implement the code generation for iterative equations in the corresponding language.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>loop_content</strong> (<em>sympy.codegen.ast.While</em>) – Sympy while loop with the loop body being a block containing sympy expressions.</p></li>
+<li><p><strong>loop_type</strong> (<em>str</em>) – Type of the generated loop.</p></li>
+<li><p><strong>loop_iterations</strong> (<em>int</em>) – Number of times the loop will be executed (if it is iterative).</p></li>
+<li><p><strong>condition</strong> (<em>sympy.logic.boolalg.Boolean</em>) – Sympy expression for the iteration condition of the loop (if applicable), e.g. i&lt;5.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A string with the code.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="TemplateTranspiler.TemplateTranspiler.generate_equations">
+<code class="sig-name descname">generate_equations</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/TemplateTranspiler.html#TemplateTranspiler.generate_equations"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#TemplateTranspiler.TemplateTranspiler.generate_equations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add an item to <code class="docutils literal notranslate"><span class="pre">self.config</span></code> that contains code implementing the equations of discretized system.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="TemplateTranspiler.TemplateTranspiler.generate_local_variables">
+<code class="sig-name descname">generate_local_variables</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/TemplateTranspiler.html#TemplateTranspiler.generate_local_variables"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#TemplateTranspiler.TemplateTranspiler.generate_local_variables" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate code for declaring the local variables and arrays for the implicit Runge-Kutta stages.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="TemplateTranspiler.TemplateTranspiler.adapt_line">
+<code class="sig-name descname">adapt_line</code><span class="sig-paren">(</span><em class="sig-param">line</em>, <em class="sig-param">records</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/TemplateTranspiler.html#TemplateTranspiler.adapt_line"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#TemplateTranspiler.TemplateTranspiler.adapt_line" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adapt a line.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="TemplateTranspiler.TemplateTranspiler.line_needs_adaptment">
+<code class="sig-name descname">line_needs_adaptment</code><span class="sig-paren">(</span><em class="sig-param">line</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/TemplateTranspiler.html#TemplateTranspiler.line_needs_adaptment"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#TemplateTranspiler.TemplateTranspiler.line_needs_adaptment" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="TemplateTranspiler.TemplateTranspiler.load_record">
+<code class="sig-name descname">load_record</code><span class="sig-paren">(</span><em class="sig-param">record_filename</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/TemplateTranspiler.html#TemplateTranspiler.load_record"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#TemplateTranspiler.TemplateTranspiler.load_record" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adapt and load the module file containing the discretized ODE system.</p>
+<p>Calls <code class="docutils literal notranslate"><span class="pre">adapt_records</span></code> to adapt the record file for the specific transpiler and reloads the records.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>record_filename</strong> (<em>str</em>) – Path of the module file containing the discretized ODE system.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The adapted and loaded record module.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>types.ModuleType</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="TemplateTranspiler.TemplateTranspiler.adapt_records">
+<code class="sig-name descname">adapt_records</code><span class="sig-paren">(</span><em class="sig-param">records</em>, <em class="sig-param">record_file</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/TemplateTranspiler.html#TemplateTranspiler.adapt_records"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#TemplateTranspiler.TemplateTranspiler.adapt_records" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a version of the record file with changes for code generation in the corresponding language.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>records</strong> (<em>types.ModuleType</em>) – The module containing the original record.</p></li>
+<li><p><strong>record_file</strong> (<em>str</em>) – Path of the original record file.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="TemplateTranspiler.TemplateTranspiler.read_modules">
+<code class="sig-name descname">read_modules</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/TemplateTranspiler.html#TemplateTranspiler.read_modules"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#TemplateTranspiler.TemplateTranspiler.read_modules" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read module file and put markers and their data in the module dictionary <code class="docutils literal notranslate"><span class="pre">self.config</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="TemplateTranspiler.TemplateTranspiler.line_is_marker">
+<code class="sig-name descname">line_is_marker</code><span class="sig-paren">(</span><em class="sig-param">line</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/TemplateTranspiler.html#TemplateTranspiler.line_is_marker"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#TemplateTranspiler.TemplateTranspiler.line_is_marker" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tests if a line is marked as a whole (i.e. line starts with marker).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="TemplateTranspiler.TemplateTranspiler.unmark_string">
+<code class="sig-name descname">unmark_string</code><span class="sig-paren">(</span><em class="sig-param">marked_string</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/TemplateTranspiler.html#TemplateTranspiler.unmark_string"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#TemplateTranspiler.TemplateTranspiler.unmark_string" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove marker from <code class="docutils literal notranslate"><span class="pre">marked_string</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="TemplateTranspiler.TemplateTranspiler.marked_string">
+<code class="sig-name descname">marked_string</code><span class="sig-paren">(</span><em class="sig-param">s</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/TemplateTranspiler.html#TemplateTranspiler.marked_string"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#TemplateTranspiler.TemplateTranspiler.marked_string" title="Permalink to this definition">¶</a></dt>
+<dd><p>Append markers to a string <code class="docutils literal notranslate"><span class="pre">s</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="TemplateTranspiler.TemplateTranspiler.inorder">
+<code class="sig-name descname">inorder</code><span class="sig-paren">(</span><em class="sig-param">rhs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/TemplateTranspiler.html#TemplateTranspiler.inorder"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#TemplateTranspiler.TemplateTranspiler.inorder" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="TemplateTranspiler.TemplateTranspiler.correct_datatype">
+<code class="sig-name descname">correct_datatype</code><span class="sig-paren">(</span><em class="sig-param">line</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/TemplateTranspiler.html#TemplateTranspiler.correct_datatype"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#TemplateTranspiler.TemplateTranspiler.correct_datatype" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="TemplateTranspiler.TemplateTranspiler.generate_print_code">
+<code class="sig-name descname">generate_print_code</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/TemplateTranspiler.html#TemplateTranspiler.generate_print_code"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#TemplateTranspiler.TemplateTranspiler.generate_print_code" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="TemplateTranspiler.TemplateTranspiler.declare_local_variable">
+<code class="sig-name descname">declare_local_variable</code><span class="sig-paren">(</span><em class="sig-param">curr_lhs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/TemplateTranspiler.html#TemplateTranspiler.declare_local_variable"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#TemplateTranspiler.TemplateTranspiler.declare_local_variable" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="TemplateTranspiler.TemplateTranspiler.declare_RK_array">
+<code class="sig-name descname">declare_RK_array</code><span class="sig-paren">(</span><em class="sig-param">array_name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/TemplateTranspiler.html#TemplateTranspiler.declare_RK_array"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#TemplateTranspiler.TemplateTranspiler.declare_RK_array" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="TemplateTranspiler.TemplateTranspiler.array_element_symbol">
+<code class="sig-name descname">array_element_symbol</code><span class="sig-paren">(</span><em class="sig-param">index</em>, <em class="sig-param">array_name</em>, <em class="sig-param">variable_name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/TemplateTranspiler.html#TemplateTranspiler.array_element_symbol"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#TemplateTranspiler.TemplateTranspiler.array_element_symbol" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return string <code class="docutils literal notranslate"><span class="pre">'variable_name</span> <span class="pre">=</span> <span class="pre">Symbol(&quot;array_name[index]&quot;)'</span></code>.</p>
+<p>Accepts index as int or string, but not float etc.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Anna Mittermair
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

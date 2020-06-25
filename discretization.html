@@ -1,0 +1,287 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Discretization &mdash; tidowa  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> tidowa
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="start.html">First steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html#discretization">Discretization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html#code-generation">Code Generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html#compilation">Compilation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html#execution">Execution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html#first-steps">First steps</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">tidowa</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Discretization</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/discretization.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="discretization">
+<h1>Discretization<a class="headerlink" href="#discretization" title="Permalink to this headline">¶</a></h1>
+<p>Takes the input ODE system and integration method and creates a new configuration file containing sympy equations for the discretized system.</p>
+<ul class="simple">
+<li><p><strong>Input:</strong> Python module file containing the ODE system as sympy equations and the discretization method (given as a string key).</p></li>
+<li><p><strong>Output:</strong> Python module file containing the discretized ODE system as sympy equations.</p></li>
+<li><p><strong>Script for executing stage:</strong> main_disc</p></li>
+<li><p><strong>Options:</strong> discrete_records_filename, configuration_filename, methods</p></li>
+</ul>
+<p>There are the following discretization options:</p>
+<dl class="simple">
+<dt><strong>Explicit</strong>:</dt><dd><ul class="simple">
+<li><p><strong>Euler method</strong></p></li>
+<li><p><strong>Heun’s method</strong></p></li>
+<li><p><strong>Midpoint method</strong></p></li>
+<li><p>Runge-Kutta methods (some are mathematically equivalent to methods listed above)</p>
+<ul>
+<li><p><strong>RK1</strong> (= Euler method)</p></li>
+<li><p><strong>RK2</strong> (= Midpoint method)</p></li>
+<li><p><strong>RK4</strong></p></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt><strong>Implicit</strong></dt><dd><ul class="simple">
+<li><p>Implicit/Backward Euler method</p></li>
+<li><p>Implicit Runge-Kutta methods using a diagonalization approach (for faster integration)</p>
+<ul>
+<li><p>Implicit/Backward Runge-Kutta of order 1 (mathematically equivalent to the Implicit Euler method, produces equivalent but not identical equations)</p></li>
+<li><p>DIRK2 (2 stages, order 2)</p></li>
+<li><p>DIRK3 (4 stages, order 3)</p></li>
+<li><p>DIRK4 (3 stages, order 4)</p></li>
+<li><p>Implicit Midpoint method (2 stages, order 2)</p></li>
+<li><p>Gauss–Legendre method of order four (2 stages, order 4)</p></li>
+</ul>
+</li>
+</ul>
+</dd>
+</dl>
+<ul class="simple">
+<li><p><strong>Other options</strong></p>
+<ul>
+<li><p>Strang Splitting</p></li>
+<li><p>Operator Splitting</p></li>
+</ul>
+</li>
+</ul>
+<p>More details on the methods can be found …</p>
+<div class="section" id="structure-implementation">
+<h2>Structure / Implementation<a class="headerlink" href="#structure-implementation" title="Permalink to this headline">¶</a></h2>
+<p>The TimeIntegratorUnit class is a template for time integration Methods. This class itself cannot be instantiated.
+It ensures, that every method contains a term, the timestep length, a list of all variables and
+a method adapt_terms that returns a term consisting of only timestep specific variables (i.e. x_n) corresponding to the given term and the annotated method.
+This method has to be implemented in every subclass. (For Examples see any subclass of TimeIntegratorUnit.)</p>
+<p>Different classes of integration methods are implemented as abstract subclasses of TimeIntegratorUnit that are in turn parent classes for the specific integration methods.</p>
+<div class="graphviz"><img src="_images/inheritance-f4ca59409e2875a85add67df6a1ee93620790689.png" alt="Inheritance diagram of ExplicitEuler, Heun, RungeKutta1, RungeKutta2, RungeKutta4, Midpoint, OrdinarySplitting, StrangSplitting, BackwardEuler, BackwardRungeKutta1, ImplicitMidpoint, DIRK2, DIRK3, DIRK4, GL4" usemap="#inheritance8ce0b79a11" class="inheritance graphviz" /></div>
+<map id="inheritance8ce0b79a11" name="inheritance8ce0b79a11">
+<area shape="rect" id="node1" href="TimeIntegratorUnit.html#TimeIntegratorUnit.BackwardEuler" target="_top" title="Basic implementation of the Backwards/Implicit Euler method:" alt="" coords="100,108,181,126"/>
+<area shape="rect" id="node2" href="TimeIntegratorUnit.html#TimeIntegratorUnit.DependentSystemTimeIntegratorUnit" target="_top" title="This is the base template class for integration methods that heavily depend on multiple equations of the ODE. Instances of these class have a variable called terms, which stores all equations" alt="" coords="75,56,261,74"/>
+<area shape="rect" id="node3" href="TimeIntegratorUnit.html#TimeIntegratorUnit.BackwardRungeKutta" target="_top" title="This class only represents implicit Runge Kutta methods. For explicit methods use the RungeKutta class." alt="" coords="198,108,308,126"/>
+<area shape="rect" id="node4" href="TimeIntegratorUnit.html#TimeIntegratorUnit.BackwardRungeKutta1" target="_top" title="The one stage Implicit Runge&#45;Kutta method of order one is identical to the Backwards Euler Method" alt="" coords="4,160,119,178"/>
+<area shape="rect" id="node5" href="TimeIntegratorUnit.html#TimeIntegratorUnit.DIRK2" target="_top" title="This Method is a Diagonally Implicit Runge Kutta method (2nd order, 2 stages) with the following Butcher Tableau::" alt="" coords="136,160,187,178"/>
+<area shape="rect" id="node6" href="TimeIntegratorUnit.html#TimeIntegratorUnit.DIRK3" target="_top" title="This Method is a Diagonally Implicit Runge Kutta method (3nd order, 4 stages) with the following Butcher Tableau::" alt="" coords="204,160,255,178"/>
+<area shape="rect" id="node7" href="TimeIntegratorUnit.html#TimeIntegratorUnit.DIRK4" target="_top" title="This uses a Diagonally Implicit Runge Kutta method (4th order, 3 stages) with the following Butcher Tableau::" alt="" coords="272,160,323,178"/>
+<area shape="rect" id="node10" href="TimeIntegratorUnit.html#TimeIntegratorUnit.GL4" target="_top" title="This uses the Gauss–Legendre method of order four with two stages and the following Butcher Tableau::" alt="" coords="340,160,391,178"/>
+<area shape="rect" id="node13" href="TimeIntegratorUnit.html#TimeIntegratorUnit.ImplicitMidpoint" target="_top" title="The Implicit Midpoint Method can be seen as a second order two stageRunge Kutta method with the following Butcher Tableau::" alt="" coords="409,160,495,178"/>
+<area shape="rect" id="node8" href="TimeIntegratorUnit.html#TimeIntegratorUnit.TimeIntegratorUnit" target="_top" title="This abstract class is a template for time integration Methods. This class itself cannot be instantiated. It ensures, that every Method contains a term, the timestep length and for convinience" alt="" coords="334,4,435,22"/>
+<area shape="rect" id="node9" href="TimeIntegratorUnit.html#TimeIntegratorUnit.ExplicitEuler" target="_top" title="ExplicitEuler" alt="" coords="279,56,349,74"/>
+<area shape="rect" id="node12" href="TimeIntegratorUnit.html#TimeIntegratorUnit.MultiDependencyTimeIntegratorUnit" target="_top" title="This is the base template class for integration methods that heavily depend on multiple equations of the ODE. Instances of these class have a variable called terms, which stores all equations" alt="" coords="366,56,545,74"/>
+<area shape="rect" id="node15" href="TimeIntegratorUnit.html#TimeIntegratorUnit.OperatorSplitting" target="_top" title="This is the base class for most splitting techniques. Other than TimeIntegratorUnits, splitting techniques consist of two terms, that are already annotated with a" alt="" coords="572,56,665,74"/>
+<area shape="rect" id="node11" href="TimeIntegratorUnit.html#TimeIntegratorUnit.Heun" target="_top" title="Heun&#39;s Method is a two&#45;stage second order Runge Kutta method, which is often referred to as the improved Euler&#39;s method." alt="" coords="350,108,401,126"/>
+<area shape="rect" id="node14" href="TimeIntegratorUnit.html#TimeIntegratorUnit.Midpoint" target="_top" title="The midpoint method is a second&#45;order one&#45;step method from the class of RungeKutta methods." alt="" coords="418,108,472,126"/>
+<area shape="rect" id="node17" href="TimeIntegratorUnit.html#TimeIntegratorUnit.RungeKutta" target="_top" title="Runge Kutta is a class of integration methods, whose members are all of form:" alt="" coords="489,108,556,126"/>
+<area shape="rect" id="node16" href="TimeIntegratorUnit.html#TimeIntegratorUnit.OrdinarySplitting" target="_top" title="Ordinary splitting integrates the two operators each for one timestep length deltaT, while the result of the" alt="" coords="573,108,664,126"/>
+<area shape="rect" id="node21" href="TimeIntegratorUnit.html#TimeIntegratorUnit.StrangSplitting" target="_top" title="Strang splitting is used to divide an equation consisting of an addition of two terms, which are mostly not stable to the same integration method. Thus both terms are treated seperately." alt="" coords="681,108,764,126"/>
+<area shape="rect" id="node18" href="TimeIntegratorUnit.html#TimeIntegratorUnit.RungeKutta1" target="_top" title="This class implements the famous RK4 algorithm. The corresponding Butcher&#45;Tableau is as follows::" alt="" coords="512,160,584,178"/>
+<area shape="rect" id="node19" href="TimeIntegratorUnit.html#TimeIntegratorUnit.RungeKutta2" target="_top" title="This class implements the famous RK4 algorithm. The corresponding Butcher&#45;Tableau is as follows::" alt="" coords="601,160,674,178"/>
+<area shape="rect" id="node20" href="TimeIntegratorUnit.html#TimeIntegratorUnit.RungeKutta4" target="_top" title="This class implements the famous RK4 algorithm. The corresponding Butcher&#45;Tableau is as follows ::" alt="" coords="691,160,764,178"/>
+</map><p>Organisation of the TimeIntegratorUnitClasses</p>
+</div>
+<div class="section" id="extending-the-discretization-stage-adding-new-discretization-methods">
+<h2>Extending the discretization stage  / Adding new discretization methods<a class="headerlink" href="#extending-the-discretization-stage-adding-new-discretization-methods" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Create a new subclass of TimeIntegratorUnit (or any of its subclasses).</p></li>
+<li><p>Implement the method adapt_term to that creates the discretized equations.</p></li>
+<li><p>Extend the annotation_dict in TimeIntegratorUnit with entries that connect the name of the class in this file with the keys used in the input to select the method. Example: “RungeKutta1” : RungeKutta1, “RK1”: RungeKutta1 connects the keys RungeKutta1 and RK1 to the RungeKutta1 class.</p></li>
+<li><p>Optional: Extend annotate_TIU in class ODE to create an instance of TimeIntegratorAnnotatedODE corresponding to this instance of ODE and the prior specified time integration methods. Without this the default instantiation for standard methods (e.g. the Explicit Euler method) is used.</p></li>
+</ol>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Anna Mittermair
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

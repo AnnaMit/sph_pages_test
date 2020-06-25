@@ -1,0 +1,21 @@
+Overview
+=================
+
+The application has a pipeline consisting of four stages:
+
+#. Discretization
+#. Code Generation
+#. Compilation
+#. Execution
+
+BILD
+(Beschreibung?)
+
+
+.. include:: discretization.rst
+
+.. include:: code_generation.rst
+
+.. include:: compilation.rst
+
+.. include:: execution.rst

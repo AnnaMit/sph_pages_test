@@ -1,0 +1,1000 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>TimeIntegratorUnit module &mdash; tidowa  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> tidowa
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="start.html">First steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html#discretization">Discretization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html#code-generation">Code Generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html#compilation">Compilation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html#execution">Execution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html#first-steps">First steps</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">tidowa</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>TimeIntegratorUnit module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/TimeIntegratorUnit.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-TimeIntegratorUnit">
+<span id="timeintegratorunit-module"></span><h1>TimeIntegratorUnit module<a class="headerlink" href="#module-TimeIntegratorUnit" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="TimeIntegratorUnit.get_default_additional_variables">
+<code class="sig-prename descclassname">TimeIntegratorUnit.</code><code class="sig-name descname">get_default_additional_variables</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/TimeIntegratorUnit.html#get_default_additional_variables"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#TimeIntegratorUnit.get_default_additional_variables" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="TimeIntegratorUnit.TimeIntegratorUnit">
+<em class="property">class </em><code class="sig-prename descclassname">TimeIntegratorUnit.</code><code class="sig-name descname">TimeIntegratorUnit</code><span class="sig-paren">(</span><em class="sig-param">term</em>, <em class="sig-param">variables</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/TimeIntegratorUnit.html#TimeIntegratorUnit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#TimeIntegratorUnit.TimeIntegratorUnit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">sympy.core.basic.Basic</span></code></p>
+<p>This abstract class is a template for time integration Methods. This class itself cannot be instantiated. It ensures, that every Method contains a term, the timestep length and for convinience
+a list of all variables.</p>
+<dl class="method">
+<dt id="TimeIntegratorUnit.TimeIntegratorUnit.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">term</em>, <em class="sig-param">variables</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/TimeIntegratorUnit.html#TimeIntegratorUnit.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#TimeIntegratorUnit.TimeIntegratorUnit.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="TimeIntegratorUnit.TimeIntegratorUnit.set_deltaT">
+<code class="sig-name descname">set_deltaT</code><span class="sig-paren">(</span><em class="sig-param">deltaT</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/TimeIntegratorUnit.html#TimeIntegratorUnit.set_deltaT"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#TimeIntegratorUnit.TimeIntegratorUnit.set_deltaT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="TimeIntegratorUnit.TimeIntegratorUnit.get_additional_config_variables">
+<code class="sig-name descname">get_additional_config_variables</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/TimeIntegratorUnit.html#TimeIntegratorUnit.get_additional_config_variables"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#TimeIntegratorUnit.TimeIntegratorUnit.get_additional_config_variables" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="TimeIntegratorUnit.TimeIntegratorUnit.number_eqs_added">
+<code class="sig-name descname">number_eqs_added</code><em class="property"> = -1</em><a class="headerlink" href="#TimeIntegratorUnit.TimeIntegratorUnit.number_eqs_added" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="TimeIntegratorUnit.TimeIntegratorUnit.adapt_terms">
+<code class="sig-name descname">adapt_terms</code><span class="sig-paren">(</span><em class="sig-param">ties</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/TimeIntegratorUnit.html#TimeIntegratorUnit.adapt_terms"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#TimeIntegratorUnit.TimeIntegratorUnit.adapt_terms" title="Permalink to this definition">¶</a></dt>
+<dd><p>Abstract method; This method has to be overwritten in every subclass.
+Examples are listed in every subclass of TimeIntegratorUnit.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A term consisting of only timestep specific variables (i.e. x_n) corresponding to <code class="docutils literal notranslate"><span class="pre">self.term</span></code> and the annotated method.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="TimeIntegratorUnit.TimeIntegratorUnit.resolve">
+<code class="sig-name descname">resolve</code><span class="sig-paren">(</span><em class="sig-param">ties</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/TimeIntegratorUnit.html#TimeIntegratorUnit.resolve"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#TimeIntegratorUnit.TimeIntegratorUnit.resolve" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method is used to form lhs_var_n for the integration methods. lhs_var_n is the timestep specific variable corresponding to lhs_var. That variable is used in almost every integration method.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>ties</strong> (<a class="reference internal" href="EquationSystem.html#EquationSystem.TimeIntegratedEquationSystem" title="EquationSystem.TimeIntegratedEquationSystem"><em>TimeIntegratedEquationSystem</em></a>) – The TimeIntegratedEquationSystem instance, with a not-finished equations parameter. Use its class function <code class="docutils literal notranslate"><span class="pre">app</span></code> to append the integrated Equalities for each TimeIntegratorUnit and each Equation</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="TimeIntegratorUnit.TimeIntegratorUnit.get_lhs_var">
+<code class="sig-name descname">get_lhs_var</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/TimeIntegratorUnit.html#TimeIntegratorUnit.get_lhs_var"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#TimeIntegratorUnit.TimeIntegratorUnit.get_lhs_var" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the lhs-var in the form x_i(t)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="TimeIntegratorUnit.TimeIntegratorUnit.time_tendencies">
+<code class="sig-name descname">time_tendencies</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/TimeIntegratorUnit.html#TimeIntegratorUnit.time_tendencies"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#TimeIntegratorUnit.TimeIntegratorUnit.time_tendencies" title="Permalink to this definition">¶</a></dt>
+<dd><p class="rubric">Example</p>
+<p>lambda1 * u(t) + 2      –&gt;     lambda1 * u_n + 2</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The Time tendencies of <code class="docutils literal notranslate"><span class="pre">self.term.</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="TimeIntegratorUnit.TimeIntegratorUnit.default_assumptions">
+<code class="sig-name descname">default_assumptions</code><em class="property"> = {}</em><a class="headerlink" href="#TimeIntegratorUnit.TimeIntegratorUnit.default_assumptions" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="TimeIntegratorUnit.ExplicitEuler">
+<em class="property">class </em><code class="sig-prename descclassname">TimeIntegratorUnit.</code><code class="sig-name descname">ExplicitEuler</code><span class="sig-paren">(</span><em class="sig-param">term</em>, <em class="sig-param">variables</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/TimeIntegratorUnit.html#ExplicitEuler"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#TimeIntegratorUnit.ExplicitEuler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#TimeIntegratorUnit.TimeIntegratorUnit" title="TimeIntegratorUnit.TimeIntegratorUnit"><code class="xref py py-class docutils literal notranslate"><span class="pre">TimeIntegratorUnit.TimeIntegratorUnit</span></code></a></p>
+<dl class="attribute">
+<dt id="TimeIntegratorUnit.ExplicitEuler.number_eqs_added">
+<code class="sig-name descname">number_eqs_added</code><em class="property"> = 1</em><a class="headerlink" href="#TimeIntegratorUnit.ExplicitEuler.number_eqs_added" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="TimeIntegratorUnit.ExplicitEuler.adapt_terms">
+<code class="sig-name descname">adapt_terms</code><span class="sig-paren">(</span><em class="sig-param">ties</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/TimeIntegratorUnit.html#ExplicitEuler.adapt_terms"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#TimeIntegratorUnit.ExplicitEuler.adapt_terms" title="Permalink to this definition">¶</a></dt>
+<dd><p>Abstract method; This method has to be overwritten in every subclass.
+Examples are listed in every subclass of TimeIntegratorUnit.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A term consisting of only timestep specific variables (i.e. x_n) corresponding to <code class="docutils literal notranslate"><span class="pre">self.term</span></code> and the annotated method.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="TimeIntegratorUnit.ExplicitEuler.default_assumptions">
+<code class="sig-name descname">default_assumptions</code><em class="property"> = {}</em><a class="headerlink" href="#TimeIntegratorUnit.ExplicitEuler.default_assumptions" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="TimeIntegratorUnit.MultiDependencyTimeIntegratorUnit">
+<em class="property">class </em><code class="sig-prename descclassname">TimeIntegratorUnit.</code><code class="sig-name descname">MultiDependencyTimeIntegratorUnit</code><span class="sig-paren">(</span><em class="sig-param">terms</em>, <em class="sig-param">variables</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/TimeIntegratorUnit.html#MultiDependencyTimeIntegratorUnit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#TimeIntegratorUnit.MultiDependencyTimeIntegratorUnit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#TimeIntegratorUnit.TimeIntegratorUnit" title="TimeIntegratorUnit.TimeIntegratorUnit"><code class="xref py py-class docutils literal notranslate"><span class="pre">TimeIntegratorUnit.TimeIntegratorUnit</span></code></a></p>
+<p>This is the base template class for integration methods that heavily depend on multiple equations of the ODE. Instances of these class have a variable called terms, which stores all equations
+the integration needs, due to dependency. The variable <code class="docutils literal notranslate"><span class="pre">lhs_list</span></code> stores the variables of the left hand sides of the original ODE (i.e. u(t)/dt) corresponding to the order of the equations in self.terms.
+The time_tendencies function has to be rewritten, to be able to index the right term.</p>
+<dl class="method">
+<dt id="TimeIntegratorUnit.MultiDependencyTimeIntegratorUnit.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">terms</em>, <em class="sig-param">variables</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/TimeIntegratorUnit.html#MultiDependencyTimeIntegratorUnit.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#TimeIntegratorUnit.MultiDependencyTimeIntegratorUnit.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="TimeIntegratorUnit.MultiDependencyTimeIntegratorUnit.get_lhs_var">
+<code class="sig-name descname">get_lhs_var</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/TimeIntegratorUnit.html#MultiDependencyTimeIntegratorUnit.get_lhs_var"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#TimeIntegratorUnit.MultiDependencyTimeIntegratorUnit.get_lhs_var" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the lhs-var in the form x_i(t).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="TimeIntegratorUnit.MultiDependencyTimeIntegratorUnit.time_tendencies">
+<code class="sig-name descname">time_tendencies</code><span class="sig-paren">(</span><em class="sig-param">termnum</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/TimeIntegratorUnit.html#MultiDependencyTimeIntegratorUnit.time_tendencies"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#TimeIntegratorUnit.MultiDependencyTimeIntegratorUnit.time_tendencies" title="Permalink to this definition">¶</a></dt>
+<dd><p>Example:
+lambda1 * u(t) + 2      –&gt;     lambda1 * u_n + 2</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The time_tendencies of <code class="docutils literal notranslate"><span class="pre">self.term</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="TimeIntegratorUnit.MultiDependencyTimeIntegratorUnit.default_assumptions">
+<code class="sig-name descname">default_assumptions</code><em class="property"> = {}</em><a class="headerlink" href="#TimeIntegratorUnit.MultiDependencyTimeIntegratorUnit.default_assumptions" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="TimeIntegratorUnit.Heun">
+<em class="property">class </em><code class="sig-prename descclassname">TimeIntegratorUnit.</code><code class="sig-name descname">Heun</code><span class="sig-paren">(</span><em class="sig-param">terms</em>, <em class="sig-param">variables</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/TimeIntegratorUnit.html#Heun"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#TimeIntegratorUnit.Heun" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#TimeIntegratorUnit.MultiDependencyTimeIntegratorUnit" title="TimeIntegratorUnit.MultiDependencyTimeIntegratorUnit"><code class="xref py py-class docutils literal notranslate"><span class="pre">TimeIntegratorUnit.MultiDependencyTimeIntegratorUnit</span></code></a></p>
+<p>Heun’s Method is a two-stage second order Runge Kutta method, which is often referred to as the improved Euler’s method.
+It should always hold, that Midpoint.adapt_term == RungeKutta.adapt_term, when RungeKutta is called with the following Butcher Tableau:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span>
+<span class="mi">1</span>  <span class="mi">1</span>
+<span class="o">-</span>  <span class="mi">1</span><span class="o">/</span><span class="mi">2</span>  <span class="mi">1</span><span class="o">/</span><span class="mi">2</span>
+</pre></div>
+</div>
+<p>Its general solution is as follows:
+ỹ_nplus1 = y_n + deltaT * f(t_n, y_n)
+y_nplus1 = y_n + deltaT/2 <a href="#id1"><span class="problematic" id="id2">*</span></a>(f(t_n,y_n) + f(t_nplus1, ỹ_nplus1)</p>
+<dl class="attribute">
+<dt id="TimeIntegratorUnit.Heun.number_eqs_added">
+<code class="sig-name descname">number_eqs_added</code><em class="property"> = 1</em><a class="headerlink" href="#TimeIntegratorUnit.Heun.number_eqs_added" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="TimeIntegratorUnit.Heun.adapt_terms">
+<code class="sig-name descname">adapt_terms</code><span class="sig-paren">(</span><em class="sig-param">ties</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/TimeIntegratorUnit.html#Heun.adapt_terms"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#TimeIntegratorUnit.Heun.adapt_terms" title="Permalink to this definition">¶</a></dt>
+<dd><p>Abstract method; This method has to be overwritten in every subclass.
+Examples are listed in every subclass of TimeIntegratorUnit.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A term consisting of only timestep specific variables (i.e. x_n) corresponding to <code class="docutils literal notranslate"><span class="pre">self.term</span></code> and the annotated method.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="TimeIntegratorUnit.Heun.default_assumptions">
+<code class="sig-name descname">default_assumptions</code><em class="property"> = {}</em><a class="headerlink" href="#TimeIntegratorUnit.Heun.default_assumptions" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="TimeIntegratorUnit.RungeKutta">
+<em class="property">class </em><code class="sig-prename descclassname">TimeIntegratorUnit.</code><code class="sig-name descname">RungeKutta</code><span class="sig-paren">(</span><em class="sig-param">terms</em>, <em class="sig-param">variables</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/TimeIntegratorUnit.html#RungeKutta"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#TimeIntegratorUnit.RungeKutta" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#TimeIntegratorUnit.MultiDependencyTimeIntegratorUnit" title="TimeIntegratorUnit.MultiDependencyTimeIntegratorUnit"><code class="xref py py-class docutils literal notranslate"><span class="pre">TimeIntegratorUnit.MultiDependencyTimeIntegratorUnit</span></code></a></p>
+<p>Runge Kutta is a class of integration methods, whose members are all of form:
+<span class="math notranslate nohighlight">\(y_{n+1} = y_n + dT * Σ b_i*k_i\)</span>
+with <span class="math notranslate nohighlight">\(k_i = f(t_n + c_i * dT, y_n + a_ii * k_i-1)\)</span>.
+A Butcher Table, can be created for each specific Runge Kutta, which has the form:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span>
+<span class="n">c_2</span>    <span class="n">a_21</span>
+<span class="n">c_3</span>    <span class="n">a_31</span>    <span class="n">a_32</span>
+<span class="o">...</span>    <span class="o">...</span>     <span class="o">...</span>     <span class="o">...</span>
+<span class="n">c_s</span>    <span class="n">a_s1</span>    <span class="n">a_s2</span>    <span class="o">...</span>     <span class="n">a_s</span><span class="p">,</span><span class="n">s</span><span class="o">-</span><span class="mi">1</span>
+ <span class="o">-</span>     <span class="n">b_1</span>     <span class="n">b_2</span>     <span class="o">...</span>     <span class="n">b_s</span><span class="o">-</span><span class="mi">1</span>   <span class="n">b_s</span>
+</pre></div>
+</div>
+<p>This class only represents explicit Runge Kutta methods, which implies, that the Butcher Tableau is a strict lower tridiagonal matrix.
+Note that this class is not intended to be instantiated. Instead create object off subclasses and use the compute_stages
+method to get a discrete form depending on a butcher tableau.</p>
+<dl class="method">
+<dt id="TimeIntegratorUnit.RungeKutta.compute_stages">
+<code class="sig-name descname">compute_stages</code><span class="sig-paren">(</span><em class="sig-param">ties</em>, <em class="sig-param">butcher_tab</em>, <em class="sig-param">dist_code</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/TimeIntegratorUnit.html#RungeKutta.compute_stages"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#TimeIntegratorUnit.RungeKutta.compute_stages" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>butcher_tab</strong> – The Butcher-Tableau defining the member of the Runge-Kutta class. This should be a tuple containing
+three lists, that define vector c, matrix A and vector b respectively.</p></li>
+<li><p><strong>dist_code</strong> – A distinct String, which defines the member of the Runge-Kutta class, that is used. This is important,
+to not confuse the Runge-Kutta Stages of different butcher-Tableaus.</p></li>
+</ul>
+</dd>
+</dl>
+<p>This method will append every RungeKutta Stage of every equation in <code class="docutils literal notranslate"><span class="pre">self.terms</span></code> to the <code class="docutils literal notranslate"><span class="pre">TIES</span></code> object. It
+will also append the equation describing the integrated form of <code class="docutils literal notranslate"><span class="pre">y_nplus1</span></code>, where <code class="docutils literal notranslate"><span class="pre">y_nplus1</span></code> is correspondig to the
+variable at <code class="docutils literal notranslate"><span class="pre">self.lhs_list[0]</span></code>. On the opposite to earlier versions of this function, the RungeKutta Stages will
+not be inserted into each higher Stage and thus save memory space as each Stage will now appear only once as a
+symbolic term.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="TimeIntegratorUnit.RungeKutta.default_assumptions">
+<code class="sig-name descname">default_assumptions</code><em class="property"> = {}</em><a class="headerlink" href="#TimeIntegratorUnit.RungeKutta.default_assumptions" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="TimeIntegratorUnit.RungeKutta1">
+<em class="property">class </em><code class="sig-prename descclassname">TimeIntegratorUnit.</code><code class="sig-name descname">RungeKutta1</code><span class="sig-paren">(</span><em class="sig-param">terms</em>, <em class="sig-param">variables</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/TimeIntegratorUnit.html#RungeKutta1"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#TimeIntegratorUnit.RungeKutta1" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#TimeIntegratorUnit.RungeKutta" title="TimeIntegratorUnit.RungeKutta"><code class="xref py py-class docutils literal notranslate"><span class="pre">TimeIntegratorUnit.RungeKutta</span></code></a></p>
+<p>This class implements the famous RK4 algorithm. The corresponding Butcher-Tableau is as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span>
+<span class="o">-</span>  <span class="mi">1</span>
+</pre></div>
+</div>
+<p>It must hold, that RungeKutta1 == ExplicitEuler, after inserting the first stage into the final term.</p>
+<dl class="attribute">
+<dt id="TimeIntegratorUnit.RungeKutta1.number_eqs_added">
+<code class="sig-name descname">number_eqs_added</code><em class="property"> = 2</em><a class="headerlink" href="#TimeIntegratorUnit.RungeKutta1.number_eqs_added" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="TimeIntegratorUnit.RungeKutta1.adapt_terms">
+<code class="sig-name descname">adapt_terms</code><span class="sig-paren">(</span><em class="sig-param">ties</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/TimeIntegratorUnit.html#RungeKutta1.adapt_terms"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#TimeIntegratorUnit.RungeKutta1.adapt_terms" title="Permalink to this definition">¶</a></dt>
+<dd><p>Abstract method; This method has to be overwritten in every subclass.
+Examples are listed in every subclass of TimeIntegratorUnit.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A term consisting of only timestep specific variables (i.e. x_n) corresponding to <code class="docutils literal notranslate"><span class="pre">self.term</span></code> and the annotated method.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="TimeIntegratorUnit.RungeKutta1.default_assumptions">
+<code class="sig-name descname">default_assumptions</code><em class="property"> = {}</em><a class="headerlink" href="#TimeIntegratorUnit.RungeKutta1.default_assumptions" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="TimeIntegratorUnit.RungeKutta2">
+<em class="property">class </em><code class="sig-prename descclassname">TimeIntegratorUnit.</code><code class="sig-name descname">RungeKutta2</code><span class="sig-paren">(</span><em class="sig-param">terms</em>, <em class="sig-param">variables</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/TimeIntegratorUnit.html#RungeKutta2"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#TimeIntegratorUnit.RungeKutta2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#TimeIntegratorUnit.RungeKutta" title="TimeIntegratorUnit.RungeKutta"><code class="xref py py-class docutils literal notranslate"><span class="pre">TimeIntegratorUnit.RungeKutta</span></code></a></p>
+<p>This class implements the famous RK4 algorithm. The corresponding Butcher-Tableau is as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span>
+<span class="mi">1</span><span class="o">/</span><span class="mi">2</span>    <span class="mi">1</span><span class="o">/</span><span class="mi">2</span>
+<span class="o">-</span>      <span class="mi">0</span>       <span class="mi">1</span>
+</pre></div>
+</div>
+<p>It must hold, that RungeKutta2 == Midpoint, after inserting the stages into the final term.</p>
+<dl class="attribute">
+<dt id="TimeIntegratorUnit.RungeKutta2.number_eqs_added">
+<code class="sig-name descname">number_eqs_added</code><em class="property"> = 3</em><a class="headerlink" href="#TimeIntegratorUnit.RungeKutta2.number_eqs_added" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="TimeIntegratorUnit.RungeKutta2.adapt_terms">
+<code class="sig-name descname">adapt_terms</code><span class="sig-paren">(</span><em class="sig-param">ties</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/TimeIntegratorUnit.html#RungeKutta2.adapt_terms"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#TimeIntegratorUnit.RungeKutta2.adapt_terms" title="Permalink to this definition">¶</a></dt>
+<dd><p>Abstract method; This method has to be overwritten in every subclass.
+Examples are listed in every subclass of TimeIntegratorUnit.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A term consisting of only timestep specific variables (i.e. x_n) corresponding to <code class="docutils literal notranslate"><span class="pre">self.term</span></code> and the annotated method.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="TimeIntegratorUnit.RungeKutta2.default_assumptions">
+<code class="sig-name descname">default_assumptions</code><em class="property"> = {}</em><a class="headerlink" href="#TimeIntegratorUnit.RungeKutta2.default_assumptions" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="TimeIntegratorUnit.RungeKutta4">
+<em class="property">class </em><code class="sig-prename descclassname">TimeIntegratorUnit.</code><code class="sig-name descname">RungeKutta4</code><span class="sig-paren">(</span><em class="sig-param">terms</em>, <em class="sig-param">variables</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/TimeIntegratorUnit.html#RungeKutta4"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#TimeIntegratorUnit.RungeKutta4" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#TimeIntegratorUnit.RungeKutta" title="TimeIntegratorUnit.RungeKutta"><code class="xref py py-class docutils literal notranslate"><span class="pre">TimeIntegratorUnit.RungeKutta</span></code></a></p>
+<p>This class implements the famous RK4 algorithm. The corresponding Butcher-Tableau is as follows</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span>
+<span class="mi">1</span><span class="o">/</span><span class="mi">2</span>    <span class="mi">1</span><span class="o">/</span><span class="mi">2</span>
+<span class="mi">1</span><span class="o">/</span><span class="mi">2</span>    <span class="mi">0</span>       <span class="mi">1</span><span class="o">/</span><span class="mi">2</span>
+<span class="mi">1</span>      <span class="mi">0</span>       <span class="mi">0</span>       <span class="mi">1</span>
+<span class="o">-</span>      <span class="mi">1</span><span class="o">/</span><span class="mi">6</span>     <span class="mi">1</span><span class="o">/</span><span class="mi">3</span>     <span class="mi">1</span><span class="o">/</span><span class="mi">3</span>     <span class="mi">1</span><span class="o">/</span><span class="mi">6</span>
+</pre></div>
+</div>
+<dl class="attribute">
+<dt id="TimeIntegratorUnit.RungeKutta4.number_eqs_added">
+<code class="sig-name descname">number_eqs_added</code><em class="property"> = 5</em><a class="headerlink" href="#TimeIntegratorUnit.RungeKutta4.number_eqs_added" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="TimeIntegratorUnit.RungeKutta4.adapt_terms">
+<code class="sig-name descname">adapt_terms</code><span class="sig-paren">(</span><em class="sig-param">ties</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/TimeIntegratorUnit.html#RungeKutta4.adapt_terms"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#TimeIntegratorUnit.RungeKutta4.adapt_terms" title="Permalink to this definition">¶</a></dt>
+<dd><p>Abstract method; This method has to be overwritten in every subclass.
+Examples are listed in every subclass of TimeIntegratorUnit.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A term consisting of only timestep specific variables (i.e. x_n) corresponding to <code class="docutils literal notranslate"><span class="pre">self.term</span></code> and the annotated method.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="TimeIntegratorUnit.RungeKutta4.default_assumptions">
+<code class="sig-name descname">default_assumptions</code><em class="property"> = {}</em><a class="headerlink" href="#TimeIntegratorUnit.RungeKutta4.default_assumptions" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="TimeIntegratorUnit.Midpoint">
+<em class="property">class </em><code class="sig-prename descclassname">TimeIntegratorUnit.</code><code class="sig-name descname">Midpoint</code><span class="sig-paren">(</span><em class="sig-param">terms</em>, <em class="sig-param">variables</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/TimeIntegratorUnit.html#Midpoint"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#TimeIntegratorUnit.Midpoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#TimeIntegratorUnit.MultiDependencyTimeIntegratorUnit" title="TimeIntegratorUnit.MultiDependencyTimeIntegratorUnit"><code class="xref py py-class docutils literal notranslate"><span class="pre">TimeIntegratorUnit.MultiDependencyTimeIntegratorUnit</span></code></a></p>
+<p>The midpoint method is a second-order one-step method from the class of RungeKutta methods.
+The difference to the explicit Euler is in the slope, which is the tangent to the original function at the point
+in the middle between t and t+1.
+It should always hold, that Midpoint.adapt_term == RungeKutta.adapt_term, when RungeKutta is called with the following
+Butcher Tableau:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span>
+<span class="mi">1</span><span class="o">/</span><span class="mi">2</span>  <span class="mi">1</span><span class="o">/</span><span class="mi">2</span>
+<span class="o">-</span>     <span class="mi">0</span>    <span class="mi">1</span>
+</pre></div>
+</div>
+<p>The general midpoint method to a problem of the form <span class="math notranslate nohighlight">\(y'(t) = f(t,y(t))\)</span> is the following:
+<span class="math notranslate nohighlight">\(y_{n+1} = y_n + dt*f(t+ dt/2 , y_n + (dt/2) * f(t, y_n))\)</span></p>
+<dl class="simple">
+<dt>Source:</dt><dd><p>John Burkhardt, Florida State University : Introduction to Scientific Computing with C++, 2011 SS, Lecture 19, Slide 10</p>
+</dd>
+</dl>
+<dl class="attribute">
+<dt id="TimeIntegratorUnit.Midpoint.number_eqs_added">
+<code class="sig-name descname">number_eqs_added</code><em class="property"> = 1</em><a class="headerlink" href="#TimeIntegratorUnit.Midpoint.number_eqs_added" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="TimeIntegratorUnit.Midpoint.adapt_terms">
+<code class="sig-name descname">adapt_terms</code><span class="sig-paren">(</span><em class="sig-param">ties</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/TimeIntegratorUnit.html#Midpoint.adapt_terms"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#TimeIntegratorUnit.Midpoint.adapt_terms" title="Permalink to this definition">¶</a></dt>
+<dd><p>Abstract method; This method has to be overwritten in every subclass.
+Examples are listed in every subclass of TimeIntegratorUnit.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A term consisting of only timestep specific variables (i.e. x_n) corresponding to <code class="docutils literal notranslate"><span class="pre">self.term</span></code> and the annotated method.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="TimeIntegratorUnit.Midpoint.default_assumptions">
+<code class="sig-name descname">default_assumptions</code><em class="property"> = {}</em><a class="headerlink" href="#TimeIntegratorUnit.Midpoint.default_assumptions" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="TimeIntegratorUnit.OperatorSplitting">
+<em class="property">class </em><code class="sig-prename descclassname">TimeIntegratorUnit.</code><code class="sig-name descname">OperatorSplitting</code><span class="sig-paren">(</span><em class="sig-param">annot_list</em>, <em class="sig-param">variables</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/TimeIntegratorUnit.html#OperatorSplitting"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#TimeIntegratorUnit.OperatorSplitting" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#TimeIntegratorUnit.TimeIntegratorUnit" title="TimeIntegratorUnit.TimeIntegratorUnit"><code class="xref py py-class docutils literal notranslate"><span class="pre">TimeIntegratorUnit.TimeIntegratorUnit</span></code></a></p>
+<p>This is the base class for most splitting techniques. Other than TimeIntegratorUnits, splitting techniques consist of two terms, that are already annotated with a
+specific time integration method.
+The <code class="docutils literal notranslate"><span class="pre">resolve()</span></code> and <code class="docutils literal notranslate"><span class="pre">adapt_term()</span></code> structure is still the same as in TimeIntegratorUnit</p>
+<dl class="method">
+<dt id="TimeIntegratorUnit.OperatorSplitting.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">annot_list</em>, <em class="sig-param">variables</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/TimeIntegratorUnit.html#OperatorSplitting.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#TimeIntegratorUnit.OperatorSplitting.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>This init is oriented to <code class="docutils literal notranslate"><span class="pre">__init__</span></code> of <code class="docutils literal notranslate"><span class="pre">TimeIntegratorUnit</span></code>. <code class="docutils literal notranslate"><span class="pre">annot1</span></code> and <code class="docutils literal notranslate"><span class="pre">annot2</span></code> are typically the two TimeIntegratorAnnotatedODEs (according to the operators in the original system),
+which will now be put together according to the Splitting method.
+<code class="docutils literal notranslate"><span class="pre">param</span></code> annot_list must be an iterable consisting of exactly two TimeIntegratorAnnotatedODE objects, representing the two operators of the original system.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="TimeIntegratorUnit.OperatorSplitting.default_assumptions">
+<code class="sig-name descname">default_assumptions</code><em class="property"> = {}</em><a class="headerlink" href="#TimeIntegratorUnit.OperatorSplitting.default_assumptions" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="TimeIntegratorUnit.OrdinarySplitting">
+<em class="property">class </em><code class="sig-prename descclassname">TimeIntegratorUnit.</code><code class="sig-name descname">OrdinarySplitting</code><span class="sig-paren">(</span><em class="sig-param">annot_list</em>, <em class="sig-param">variables</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/TimeIntegratorUnit.html#OrdinarySplitting"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#TimeIntegratorUnit.OrdinarySplitting" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#TimeIntegratorUnit.OperatorSplitting" title="TimeIntegratorUnit.OperatorSplitting"><code class="xref py py-class docutils literal notranslate"><span class="pre">TimeIntegratorUnit.OperatorSplitting</span></code></a></p>
+<p>Ordinary splitting integrates the two operators each for one timestep length deltaT, while the result of the
+integration of the first operator is used as input value for the second operator.</p>
+<dl class="attribute">
+<dt id="TimeIntegratorUnit.OrdinarySplitting.number_eqs_added">
+<code class="sig-name descname">number_eqs_added</code><em class="property"> = 1</em><a class="headerlink" href="#TimeIntegratorUnit.OrdinarySplitting.number_eqs_added" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="TimeIntegratorUnit.OrdinarySplitting.adapt_terms">
+<code class="sig-name descname">adapt_terms</code><span class="sig-paren">(</span><em class="sig-param">ties</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/TimeIntegratorUnit.html#OrdinarySplitting.adapt_terms"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#TimeIntegratorUnit.OrdinarySplitting.adapt_terms" title="Permalink to this definition">¶</a></dt>
+<dd><p>Abstract method; This method has to be overwritten in every subclass.
+Examples are listed in every subclass of TimeIntegratorUnit.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A term consisting of only timestep specific variables (i.e. x_n) corresponding to <code class="docutils literal notranslate"><span class="pre">self.term</span></code> and the annotated method.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="TimeIntegratorUnit.OrdinarySplitting.default_assumptions">
+<code class="sig-name descname">default_assumptions</code><em class="property"> = {}</em><a class="headerlink" href="#TimeIntegratorUnit.OrdinarySplitting.default_assumptions" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="TimeIntegratorUnit.StrangSplitting">
+<em class="property">class </em><code class="sig-prename descclassname">TimeIntegratorUnit.</code><code class="sig-name descname">StrangSplitting</code><span class="sig-paren">(</span><em class="sig-param">annot_list</em>, <em class="sig-param">variables</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/TimeIntegratorUnit.html#StrangSplitting"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#TimeIntegratorUnit.StrangSplitting" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#TimeIntegratorUnit.OperatorSplitting" title="TimeIntegratorUnit.OperatorSplitting"><code class="xref py py-class docutils literal notranslate"><span class="pre">TimeIntegratorUnit.OperatorSplitting</span></code></a></p>
+<p>Strang splitting is used to divide an equation consisting of an addition of two terms, which are mostly not stable to the same integration method. Thus both terms are treated seperately.
+If the first term gets integrated for deltaT/2, then used as initialvalue for integrating the second term for deltaT, which then again is used to integrate the first term for deltaT/2, the error
+this method induces is only of second order.</p>
+<p class="rubric">Example</p>
+<dl>
+<dt>Equation:</dt><dd><p><span class="math notranslate nohighlight">\(u_t = λ_1 u + λ_2 u\)</span></p>
+</dd>
+<dt>Split into TimeIntegratorUnits:</dt><dd><div class="line-block">
+<div class="line">→ tiu1 = ExplicitEuler(<span class="math notranslate nohighlight">\(λ_1 u\)</span>)</div>
+<div class="line">→ tiu2 = ExplicitEuler(<span class="math notranslate nohighlight">\(λ_2 u)\)</span></div>
+</div>
+</dd>
+<dt>Discretized Equations (h⁼dT):</dt><dd><div class="line-block">
+<div class="line"><span class="math notranslate nohighlight">\(v = u_n + h / 2 * (λ_1 u_n)\)</span></div>
+<div class="line"><span class="math notranslate nohighlight">\(w = v + h * (λ_2 v)\)</span></div>
+<div class="line"><span class="math notranslate nohighlight">\(u_{n+1} = w + h/2 * (λ_1 w)\)</span></div>
+</div>
+</dd>
+</dl>
+<dl class="attribute">
+<dt id="TimeIntegratorUnit.StrangSplitting.number_eqs_added">
+<code class="sig-name descname">number_eqs_added</code><em class="property"> = 1</em><a class="headerlink" href="#TimeIntegratorUnit.StrangSplitting.number_eqs_added" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="TimeIntegratorUnit.StrangSplitting.adapt_terms">
+<code class="sig-name descname">adapt_terms</code><span class="sig-paren">(</span><em class="sig-param">ties</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/TimeIntegratorUnit.html#StrangSplitting.adapt_terms"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#TimeIntegratorUnit.StrangSplitting.adapt_terms" title="Permalink to this definition">¶</a></dt>
+<dd><p>Abstract method; This method has to be overwritten in every subclass.
+Examples are listed in every subclass of TimeIntegratorUnit.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A term consisting of only timestep specific variables (i.e. x_n) corresponding to <code class="docutils literal notranslate"><span class="pre">self.term</span></code> and the annotated method.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="TimeIntegratorUnit.StrangSplitting.default_assumptions">
+<code class="sig-name descname">default_assumptions</code><em class="property"> = {}</em><a class="headerlink" href="#TimeIntegratorUnit.StrangSplitting.default_assumptions" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="TimeIntegratorUnit.DependentSystemTimeIntegratorUnit">
+<em class="property">class </em><code class="sig-prename descclassname">TimeIntegratorUnit.</code><code class="sig-name descname">DependentSystemTimeIntegratorUnit</code><span class="sig-paren">(</span><em class="sig-param">terms</em>, <em class="sig-param">variables</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/TimeIntegratorUnit.html#DependentSystemTimeIntegratorUnit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#TimeIntegratorUnit.DependentSystemTimeIntegratorUnit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#TimeIntegratorUnit.TimeIntegratorUnit" title="TimeIntegratorUnit.TimeIntegratorUnit"><code class="xref py py-class docutils literal notranslate"><span class="pre">TimeIntegratorUnit.TimeIntegratorUnit</span></code></a></p>
+<p>This is the base template class for integration methods that heavily depend on multiple equations of the ODE. Instances of these class have a variable called terms, which stores all equations
+the integration needs, due to dependency. The variable <code class="docutils literal notranslate"><span class="pre">lhs_list</span></code> stores the variables of the left hand sides of the original ODE (i.e. u(t)/dt) corresponding to the order of the equations in self.terms.
+The function <code class="docutils literal notranslate"><span class="pre">time_tendencies</span></code> has to be rewritten, to be able to index the right term.</p>
+<dl class="method">
+<dt id="TimeIntegratorUnit.DependentSystemTimeIntegratorUnit.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">terms</em>, <em class="sig-param">variables</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/TimeIntegratorUnit.html#DependentSystemTimeIntegratorUnit.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#TimeIntegratorUnit.DependentSystemTimeIntegratorUnit.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Base Constructor for DependentSystemTimeIntegratorUnit instances.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>terms</strong> (<em>tuple of sympy.core.relational.Equality</em>) – </p></li>
+<li><p><strong>variables</strong> (<em>tuple of sympy.core.symbol.Symbol</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="TimeIntegratorUnit.DependentSystemTimeIntegratorUnit.get_additional_config_variables">
+<code class="sig-name descname">get_additional_config_variables</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/TimeIntegratorUnit.html#DependentSystemTimeIntegratorUnit.get_additional_config_variables"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#TimeIntegratorUnit.DependentSystemTimeIntegratorUnit.get_additional_config_variables" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="TimeIntegratorUnit.DependentSystemTimeIntegratorUnit.get_lhs_var">
+<code class="sig-name descname">get_lhs_var</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/TimeIntegratorUnit.html#DependentSystemTimeIntegratorUnit.get_lhs_var"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#TimeIntegratorUnit.DependentSystemTimeIntegratorUnit.get_lhs_var" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the lhs-var in the form x_i(t).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="TimeIntegratorUnit.DependentSystemTimeIntegratorUnit.time_tendencies">
+<code class="sig-name descname">time_tendencies</code><span class="sig-paren">(</span><em class="sig-param">termnum</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/TimeIntegratorUnit.html#DependentSystemTimeIntegratorUnit.time_tendencies"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#TimeIntegratorUnit.DependentSystemTimeIntegratorUnit.time_tendencies" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the time_tendencies of <code class="docutils literal notranslate"><span class="pre">self.terms[termnum]</span></code>.</p>
+<p class="rubric">Example</p>
+<p>For the term lambda1 * u(t) + 2 this returns lambda1 * u_n + 2.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="TimeIntegratorUnit.DependentSystemTimeIntegratorUnit.default_assumptions">
+<code class="sig-name descname">default_assumptions</code><em class="property"> = {}</em><a class="headerlink" href="#TimeIntegratorUnit.DependentSystemTimeIntegratorUnit.default_assumptions" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="TimeIntegratorUnit.BackwardEuler">
+<em class="property">class </em><code class="sig-prename descclassname">TimeIntegratorUnit.</code><code class="sig-name descname">BackwardEuler</code><span class="sig-paren">(</span><em class="sig-param">terms</em>, <em class="sig-param">variables</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/TimeIntegratorUnit.html#BackwardEuler"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#TimeIntegratorUnit.BackwardEuler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#TimeIntegratorUnit.DependentSystemTimeIntegratorUnit" title="TimeIntegratorUnit.DependentSystemTimeIntegratorUnit"><code class="xref py py-class docutils literal notranslate"><span class="pre">TimeIntegratorUnit.DependentSystemTimeIntegratorUnit</span></code></a></p>
+<p>Basic implementation of the Backwards/Implicit Euler method:</p>
+<p><span class="math notranslate nohighlight">\(t_{n+1} = t_n + dT\)</span> and
+<span class="math notranslate nohighlight">\(x_{n+1}= x_n + dT * f(t_{n+1}, x_{n+1})\)</span></p>
+<p>To approximate a solution <span class="math notranslate nohighlight">\(x_{n+1}\)</span>, Newton’s method is used:</p>
+<p><span class="math notranslate nohighlight">\(y_{i+1} = y_i - g(y_i)/g'(y_i)\)</span></p>
+<p>Combining those, the algorithm generates the value at the next time step through iteration of the following formula
+until convergence:</p>
+<p><span class="math notranslate nohighlight">\(y_{i+1} = y_i - (y_i - x_n - dT * f(t_{n+1}, y_n)) / (1 - dT * d/dt f(t_{n+1}, y_n))\)</span></p>
+<p>The Backwards Euler Method can be seen as a first order single stage order Runge Kutta method
+with the following Butcher Tableau:</p>
+<div class="line-block">
+<div class="line">1   1</div>
+<div class="line">1</div>
+</div>
+<dl class="method">
+<dt id="TimeIntegratorUnit.BackwardEuler.adapt_terms">
+<code class="sig-name descname">adapt_terms</code><span class="sig-paren">(</span><em class="sig-param">ties</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/TimeIntegratorUnit.html#BackwardEuler.adapt_terms"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#TimeIntegratorUnit.BackwardEuler.adapt_terms" title="Permalink to this definition">¶</a></dt>
+<dd><p>Abstract method; This method has to be overwritten in every subclass.
+Examples are listed in every subclass of TimeIntegratorUnit.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A term consisting of only timestep specific variables (i.e. x_n) corresponding to <code class="docutils literal notranslate"><span class="pre">self.term</span></code> and the annotated method.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="TimeIntegratorUnit.BackwardEuler.default_assumptions">
+<code class="sig-name descname">default_assumptions</code><em class="property"> = {}</em><a class="headerlink" href="#TimeIntegratorUnit.BackwardEuler.default_assumptions" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="TimeIntegratorUnit.BackwardRungeKutta">
+<em class="property">class </em><code class="sig-prename descclassname">TimeIntegratorUnit.</code><code class="sig-name descname">BackwardRungeKutta</code><span class="sig-paren">(</span><em class="sig-param">terms</em>, <em class="sig-param">variables</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/TimeIntegratorUnit.html#BackwardRungeKutta"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#TimeIntegratorUnit.BackwardRungeKutta" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#TimeIntegratorUnit.DependentSystemTimeIntegratorUnit" title="TimeIntegratorUnit.DependentSystemTimeIntegratorUnit"><code class="xref py py-class docutils literal notranslate"><span class="pre">TimeIntegratorUnit.DependentSystemTimeIntegratorUnit</span></code></a></p>
+<p>This class only represents implicit Runge Kutta methods. For explicit methods use the RungeKutta class.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This class is not intended to be instantiated. Instead create object off subclasses and use the compute_stages
+method to get a discrete form depending on a butcher tableau.</p>
+</div>
+<dl class="method">
+<dt id="TimeIntegratorUnit.BackwardRungeKutta.substitute_at_end">
+<code class="sig-name descname">substitute_at_end</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/TimeIntegratorUnit.html#BackwardRungeKutta.substitute_at_end"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#TimeIntegratorUnit.BackwardRungeKutta.substitute_at_end" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="TimeIntegratorUnit.BackwardRungeKutta.compute_stages">
+<code class="sig-name descname">compute_stages</code><span class="sig-paren">(</span><em class="sig-param">ties</em>, <em class="sig-param">butcher_tab</em>, <em class="sig-param">dist_code</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/TimeIntegratorUnit.html#BackwardRungeKutta.compute_stages"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#TimeIntegratorUnit.BackwardRungeKutta.compute_stages" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>butcher_tab</strong> – The Butcher-Tableau defining the member of the Runge-Kutta class. This should be a tuple containing
+three lists, that define vector c, matrix A and vector b respectively.</p></li>
+<li><p><strong>dist_code</strong> – A distinct String, which defines the member of the Runge-Kutta class, that is used. This is important,
+to not confuse the Runge-Kutta Stages of different butcher-Tableaus.</p></li>
+</ul>
+</dd>
+</dl>
+<p>This method will append every RungeKutta Stage of every equation in self.terms to the TIES object. It
+will also append the equation describing the integrated form of y_nplus1, where y_nplus1 is correspondig to the
+variable at <code class="docutils literal notranslate"><span class="pre">self.lhs_list[0]</span></code>. On the opposite to earlier versions of this function, the RungeKutta Stages will
+not be inserted into each higher Stage and thus save memory space as each Stage will now appear only once as a
+symbolic term.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="TimeIntegratorUnit.BackwardRungeKutta.make_Jacobi_matrix">
+<code class="sig-name descname">make_Jacobi_matrix</code><span class="sig-paren">(</span><em class="sig-param">terms</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/TimeIntegratorUnit.html#BackwardRungeKutta.make_Jacobi_matrix"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#TimeIntegratorUnit.BackwardRungeKutta.make_Jacobi_matrix" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="TimeIntegratorUnit.BackwardRungeKutta.default_assumptions">
+<code class="sig-name descname">default_assumptions</code><em class="property"> = {}</em><a class="headerlink" href="#TimeIntegratorUnit.BackwardRungeKutta.default_assumptions" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="TimeIntegratorUnit.BackwardRungeKutta1">
+<em class="property">class </em><code class="sig-prename descclassname">TimeIntegratorUnit.</code><code class="sig-name descname">BackwardRungeKutta1</code><span class="sig-paren">(</span><em class="sig-param">terms</em>, <em class="sig-param">variables</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/TimeIntegratorUnit.html#BackwardRungeKutta1"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#TimeIntegratorUnit.BackwardRungeKutta1" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#TimeIntegratorUnit.BackwardRungeKutta" title="TimeIntegratorUnit.BackwardRungeKutta"><code class="xref py py-class docutils literal notranslate"><span class="pre">TimeIntegratorUnit.BackwardRungeKutta</span></code></a></p>
+<p>The one stage Implicit Runge-Kutta method of order one is identical to the Backwards Euler Method
+and has with the following Butcher Tableau:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span>   <span class="mi">1</span>
+<span class="mi">1</span>
+</pre></div>
+</div>
+<dl class="method">
+<dt id="TimeIntegratorUnit.BackwardRungeKutta1.adapt_terms">
+<code class="sig-name descname">adapt_terms</code><span class="sig-paren">(</span><em class="sig-param">ties</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/TimeIntegratorUnit.html#BackwardRungeKutta1.adapt_terms"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#TimeIntegratorUnit.BackwardRungeKutta1.adapt_terms" title="Permalink to this definition">¶</a></dt>
+<dd><p>Abstract method; This method has to be overwritten in every subclass.
+Examples are listed in every subclass of TimeIntegratorUnit.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A term consisting of only timestep specific variables (i.e. x_n) corresponding to <code class="docutils literal notranslate"><span class="pre">self.term</span></code> and the annotated method.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="TimeIntegratorUnit.BackwardRungeKutta1.default_assumptions">
+<code class="sig-name descname">default_assumptions</code><em class="property"> = {}</em><a class="headerlink" href="#TimeIntegratorUnit.BackwardRungeKutta1.default_assumptions" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="TimeIntegratorUnit.ImplicitMidpoint">
+<em class="property">class </em><code class="sig-prename descclassname">TimeIntegratorUnit.</code><code class="sig-name descname">ImplicitMidpoint</code><span class="sig-paren">(</span><em class="sig-param">terms</em>, <em class="sig-param">variables</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/TimeIntegratorUnit.html#ImplicitMidpoint"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#TimeIntegratorUnit.ImplicitMidpoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#TimeIntegratorUnit.BackwardRungeKutta" title="TimeIntegratorUnit.BackwardRungeKutta"><code class="xref py py-class docutils literal notranslate"><span class="pre">TimeIntegratorUnit.BackwardRungeKutta</span></code></a></p>
+<p>The Implicit Midpoint Method can be seen as a second order two stageRunge Kutta method with the following Butcher Tableau:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span>   <span class="mi">1</span><span class="o">/</span><span class="mi">2</span>
+ <span class="o">-</span>    <span class="mi">1</span>
+</pre></div>
+</div>
+<dl class="method">
+<dt id="TimeIntegratorUnit.ImplicitMidpoint.adapt_terms">
+<code class="sig-name descname">adapt_terms</code><span class="sig-paren">(</span><em class="sig-param">ties</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/TimeIntegratorUnit.html#ImplicitMidpoint.adapt_terms"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#TimeIntegratorUnit.ImplicitMidpoint.adapt_terms" title="Permalink to this definition">¶</a></dt>
+<dd><p>Abstract method; This method has to be overwritten in every subclass.
+Examples are listed in every subclass of TimeIntegratorUnit.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A term consisting of only timestep specific variables (i.e. x_n) corresponding to <code class="docutils literal notranslate"><span class="pre">self.term</span></code> and the annotated method.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="TimeIntegratorUnit.ImplicitMidpoint.default_assumptions">
+<code class="sig-name descname">default_assumptions</code><em class="property"> = {}</em><a class="headerlink" href="#TimeIntegratorUnit.ImplicitMidpoint.default_assumptions" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="TimeIntegratorUnit.DIRK2">
+<em class="property">class </em><code class="sig-prename descclassname">TimeIntegratorUnit.</code><code class="sig-name descname">DIRK2</code><span class="sig-paren">(</span><em class="sig-param">terms</em>, <em class="sig-param">variables</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/TimeIntegratorUnit.html#DIRK2"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#TimeIntegratorUnit.DIRK2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#TimeIntegratorUnit.BackwardRungeKutta" title="TimeIntegratorUnit.BackwardRungeKutta"><code class="xref py py-class docutils literal notranslate"><span class="pre">TimeIntegratorUnit.BackwardRungeKutta</span></code></a></p>
+<p>This Method is a Diagonally Implicit Runge Kutta method (2nd order, 2 stages) with the following Butcher Tableau:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span><span class="o">/</span><span class="mi">4</span>   <span class="mi">1</span><span class="o">/</span><span class="mi">4</span>
+<span class="mi">3</span><span class="o">/</span><span class="mi">4</span>   <span class="mi">1</span><span class="o">/</span><span class="mi">2</span>     <span class="mi">1</span><span class="o">/</span><span class="mi">4</span>
+ <span class="o">-</span>    <span class="mi">1</span><span class="o">/</span><span class="mi">2</span>     <span class="mi">1</span><span class="o">/</span><span class="mi">2</span>
+</pre></div>
+</div>
+<dl class="method">
+<dt id="TimeIntegratorUnit.DIRK2.adapt_terms">
+<code class="sig-name descname">adapt_terms</code><span class="sig-paren">(</span><em class="sig-param">ties</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/TimeIntegratorUnit.html#DIRK2.adapt_terms"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#TimeIntegratorUnit.DIRK2.adapt_terms" title="Permalink to this definition">¶</a></dt>
+<dd><p>Abstract method; This method has to be overwritten in every subclass.
+Examples are listed in every subclass of TimeIntegratorUnit.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A term consisting of only timestep specific variables (i.e. x_n) corresponding to <code class="docutils literal notranslate"><span class="pre">self.term</span></code> and the annotated method.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="TimeIntegratorUnit.DIRK2.default_assumptions">
+<code class="sig-name descname">default_assumptions</code><em class="property"> = {}</em><a class="headerlink" href="#TimeIntegratorUnit.DIRK2.default_assumptions" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="TimeIntegratorUnit.DIRK3">
+<em class="property">class </em><code class="sig-prename descclassname">TimeIntegratorUnit.</code><code class="sig-name descname">DIRK3</code><span class="sig-paren">(</span><em class="sig-param">terms</em>, <em class="sig-param">variables</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/TimeIntegratorUnit.html#DIRK3"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#TimeIntegratorUnit.DIRK3" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#TimeIntegratorUnit.BackwardRungeKutta" title="TimeIntegratorUnit.BackwardRungeKutta"><code class="xref py py-class docutils literal notranslate"><span class="pre">TimeIntegratorUnit.BackwardRungeKutta</span></code></a></p>
+<p>This Method is a Diagonally Implicit Runge Kutta method (3nd order, 4 stages) with the following Butcher Tableau:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span>   <span class="mi">1</span><span class="o">/</span><span class="mi">2</span>
+<span class="mi">2</span><span class="o">/</span><span class="mi">3</span>   <span class="mi">1</span><span class="o">/</span><span class="mi">6</span>      <span class="mi">1</span><span class="o">/</span><span class="mi">2</span>
+<span class="mi">1</span><span class="o">/</span><span class="mi">2</span>  <span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span>      <span class="mi">1</span><span class="o">/</span><span class="mi">2</span>    <span class="mi">1</span><span class="o">/</span><span class="mi">2</span>
+<span class="mi">1</span>     <span class="mi">3</span><span class="o">/</span><span class="mi">2</span>     <span class="o">-</span><span class="mi">3</span><span class="o">/</span><span class="mi">2</span>    <span class="mi">1</span><span class="o">/</span><span class="mi">2</span>     <span class="mi">1</span><span class="o">/</span><span class="mi">2</span>
+<span class="o">-</span>     <span class="mi">3</span><span class="o">/</span><span class="mi">2</span>     <span class="o">-</span><span class="mi">3</span><span class="o">/</span><span class="mi">2</span>    <span class="mi">1</span><span class="o">/</span><span class="mi">2</span>     <span class="mi">1</span><span class="o">/</span><span class="mi">2</span>
+</pre></div>
+</div>
+<dl class="method">
+<dt id="TimeIntegratorUnit.DIRK3.adapt_terms">
+<code class="sig-name descname">adapt_terms</code><span class="sig-paren">(</span><em class="sig-param">ties</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/TimeIntegratorUnit.html#DIRK3.adapt_terms"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#TimeIntegratorUnit.DIRK3.adapt_terms" title="Permalink to this definition">¶</a></dt>
+<dd><p>Abstract method; This method has to be overwritten in every subclass.
+Examples are listed in every subclass of TimeIntegratorUnit.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A term consisting of only timestep specific variables (i.e. x_n) corresponding to <code class="docutils literal notranslate"><span class="pre">self.term</span></code> and the annotated method.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="TimeIntegratorUnit.DIRK3.default_assumptions">
+<code class="sig-name descname">default_assumptions</code><em class="property"> = {}</em><a class="headerlink" href="#TimeIntegratorUnit.DIRK3.default_assumptions" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="TimeIntegratorUnit.GL4">
+<em class="property">class </em><code class="sig-prename descclassname">TimeIntegratorUnit.</code><code class="sig-name descname">GL4</code><span class="sig-paren">(</span><em class="sig-param">terms</em>, <em class="sig-param">variables</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/TimeIntegratorUnit.html#GL4"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#TimeIntegratorUnit.GL4" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#TimeIntegratorUnit.BackwardRungeKutta" title="TimeIntegratorUnit.BackwardRungeKutta"><code class="xref py py-class docutils literal notranslate"><span class="pre">TimeIntegratorUnit.BackwardRungeKutta</span></code></a></p>
+<p>This uses the Gauss–Legendre method of order four with two stages and the following Butcher Tableau:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span><span class="o">-</span><span class="n">x</span>    <span class="mi">1</span><span class="o">/</span><span class="mi">4</span>     <span class="mi">1</span><span class="o">/</span><span class="mi">4</span><span class="o">-</span><span class="n">x</span>
+<span class="mi">2</span><span class="o">+</span><span class="n">x</span>    <span class="mi">1</span><span class="o">/</span><span class="mi">4</span><span class="o">+</span><span class="n">x</span>   <span class="mi">1</span><span class="o">/</span><span class="mi">4</span>
+<span class="o">-</span>      <span class="mi">1</span><span class="o">/</span><span class="mi">2</span>     <span class="mi">1</span><span class="o">/</span><span class="mi">2</span>
+</pre></div>
+</div>
+<dl class="method">
+<dt id="TimeIntegratorUnit.GL4.adapt_terms">
+<code class="sig-name descname">adapt_terms</code><span class="sig-paren">(</span><em class="sig-param">ties</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/TimeIntegratorUnit.html#GL4.adapt_terms"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#TimeIntegratorUnit.GL4.adapt_terms" title="Permalink to this definition">¶</a></dt>
+<dd><p>Abstract method; This method has to be overwritten in every subclass.
+Examples are listed in every subclass of TimeIntegratorUnit.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A term consisting of only timestep specific variables (i.e. x_n) corresponding to <code class="docutils literal notranslate"><span class="pre">self.term</span></code> and the annotated method.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="TimeIntegratorUnit.GL4.default_assumptions">
+<code class="sig-name descname">default_assumptions</code><em class="property"> = {}</em><a class="headerlink" href="#TimeIntegratorUnit.GL4.default_assumptions" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="TimeIntegratorUnit.DIRK4">
+<em class="property">class </em><code class="sig-prename descclassname">TimeIntegratorUnit.</code><code class="sig-name descname">DIRK4</code><span class="sig-paren">(</span><em class="sig-param">terms</em>, <em class="sig-param">variables</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/TimeIntegratorUnit.html#DIRK4"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#TimeIntegratorUnit.DIRK4" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#TimeIntegratorUnit.BackwardRungeKutta" title="TimeIntegratorUnit.BackwardRungeKutta"><code class="xref py py-class docutils literal notranslate"><span class="pre">TimeIntegratorUnit.BackwardRungeKutta</span></code></a></p>
+<p>This uses a Diagonally Implicit Runge Kutta method (4th order, 3 stages) with the following Butcher Tableau:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span>      <span class="n">x</span>
+<span class="mi">1</span><span class="o">/</span><span class="mi">2</span>    <span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="o">-</span><span class="n">x</span>   <span class="n">x</span>
+<span class="mi">1</span><span class="o">-</span><span class="n">x</span>    <span class="mi">2</span><span class="n">x</span>      <span class="mi">1</span><span class="o">-</span><span class="mi">4</span><span class="n">x</span>    <span class="n">x</span>
+<span class="o">-</span>      <span class="n">b1</span>      <span class="n">b2</span>      <span class="n">b1</span>
+
+<span class="k">with</span> <span class="n">b1</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">6</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">),</span>  <span class="n">b2</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="ow">and</span> <span class="n">x</span> <span class="o">=</span> <span class="nb">any</span> <span class="n">of</span> <span class="p">{</span><span class="mi">53429</span><span class="o">/</span><span class="mi">50000</span><span class="p">,</span> <span class="mi">60507</span><span class="o">/</span><span class="mi">200000</span> <span class="ow">or</span> <span class="mi">64443</span><span class="o">/</span><span class="mi">500000</span><span class="p">}</span>
+</pre></div>
+</div>
+<dl class="method">
+<dt id="TimeIntegratorUnit.DIRK4.substitute_at_end">
+<code class="sig-name descname">substitute_at_end</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/TimeIntegratorUnit.html#DIRK4.substitute_at_end"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#TimeIntegratorUnit.DIRK4.substitute_at_end" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="TimeIntegratorUnit.DIRK4.adapt_terms">
+<code class="sig-name descname">adapt_terms</code><span class="sig-paren">(</span><em class="sig-param">ties</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/TimeIntegratorUnit.html#DIRK4.adapt_terms"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#TimeIntegratorUnit.DIRK4.adapt_terms" title="Permalink to this definition">¶</a></dt>
+<dd><p>Abstract method; This method has to be overwritten in every subclass.
+Examples are listed in every subclass of TimeIntegratorUnit.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A term consisting of only timestep specific variables (i.e. x_n) corresponding to <code class="docutils literal notranslate"><span class="pre">self.term</span></code> and the annotated method.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="TimeIntegratorUnit.DIRK4.default_assumptions">
+<code class="sig-name descname">default_assumptions</code><em class="property"> = {}</em><a class="headerlink" href="#TimeIntegratorUnit.DIRK4.default_assumptions" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="data">
+<dt id="TimeIntegratorUnit.annotation_dict">
+<code class="sig-prename descclassname">TimeIntegratorUnit.</code><code class="sig-name descname">annotation_dict</code><em class="property"> = {'BRK1': &lt;class 'TimeIntegratorUnit.BackwardRungeKutta1'&gt;, 'BackwardEuler': &lt;class 'TimeIntegratorUnit.BackwardEuler'&gt;, 'DIRK2': &lt;class 'TimeIntegratorUnit.DIRK2'&gt;, 'DIRK3': &lt;class 'TimeIntegratorUnit.DIRK3'&gt;, 'DIRK4': &lt;class 'TimeIntegratorUnit.DIRK4'&gt;, 'ExplicitEuler': &lt;class 'TimeIntegratorUnit.ExplicitEuler'&gt;, 'GL4': &lt;class 'TimeIntegratorUnit.GL4'&gt;, 'Heun': &lt;class 'TimeIntegratorUnit.Heun'&gt;, 'IMP': &lt;class 'TimeIntegratorUnit.ImplicitMidpoint'&gt;, 'Midpoint': &lt;class 'TimeIntegratorUnit.Midpoint'&gt;, 'OrdinarySplitting': &lt;class 'TimeIntegratorUnit.OrdinarySplitting'&gt;, 'RK1': &lt;class 'TimeIntegratorUnit.RungeKutta1'&gt;, 'RK2': &lt;class 'TimeIntegratorUnit.RungeKutta2'&gt;, 'RK4': &lt;class 'TimeIntegratorUnit.RungeKutta4'&gt;, 'RungeKutta1': &lt;class 'TimeIntegratorUnit.RungeKutta1'&gt;, 'RungeKutta2': &lt;class 'TimeIntegratorUnit.RungeKutta2'&gt;, 'RungeKutta4': &lt;class 'TimeIntegratorUnit.RungeKutta4'&gt;, 'StrangSplitting': &lt;class 'TimeIntegratorUnit.StrangSplitting'&gt;}</em><a class="headerlink" href="#TimeIntegratorUnit.annotation_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">method_builder_dict</span></code> is a dictionary connecting the names of each class in this file with an instantiation of that class. This is primarly used in <code class="docutils literal notranslate"><span class="pre">EquationSystem.ODE</span></code>.
+This dictionary has to be manually extended for each time integration method added.</p>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Anna Mittermair
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

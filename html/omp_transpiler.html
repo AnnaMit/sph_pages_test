@@ -1,0 +1,392 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>omp_transpiler module &mdash; tidowa  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> tidowa
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="start.html">First steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html#discretization">Discretization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html#code-generation">Code Generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html#compilation">Compilation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html#execution">Execution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html#first-steps">First steps</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">tidowa</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>omp_transpiler module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/omp_transpiler.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-omp_transpiler">
+<span id="omp-transpiler-module"></span><h1>omp_transpiler module<a class="headerlink" href="#module-omp_transpiler" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="omp_transpiler.OMP_Transpiler">
+<em class="property">class </em><code class="sig-prename descclassname">omp_transpiler.</code><code class="sig-name descname">OMP_Transpiler</code><span class="sig-paren">(</span><em class="sig-param">data_type='float'</em>, <em class="sig-param">record_filename='data.codegen.discrete_records.record_1'</em>, <em class="sig-param">loop_type='config'</em>, <em class="sig-param">code_output_directory=None</em>, <em class="sig-param">output_directory='../data/exec/output'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/omp_transpiler.html#OMP_Transpiler"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#omp_transpiler.OMP_Transpiler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">src.codegen.TemplateTranspiler.TemplateTranspiler</span></code></p>
+<p>Transpiler that generates OpenMP C++-Code for numerical integration.</p>
+<dl class="attribute">
+<dt id="omp_transpiler.OMP_Transpiler.marker">
+<code class="sig-name descname">marker</code><em class="property"> = '##'</em><a class="headerlink" href="#omp_transpiler.OMP_Transpiler.marker" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="omp_transpiler.OMP_Transpiler.dir_name">
+<code class="sig-name descname">dir_name</code><em class="property"> = 'openmp'</em><a class="headerlink" href="#omp_transpiler.OMP_Transpiler.dir_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="omp_transpiler.OMP_Transpiler.vectorize">
+<code class="sig-name descname">vectorize</code><em class="property"> = False</em><a class="headerlink" href="#omp_transpiler.OMP_Transpiler.vectorize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="omp_transpiler.OMP_Transpiler.vectorizeFor">
+<code class="sig-name descname">vectorizeFor</code><em class="property"> = True</em><a class="headerlink" href="#omp_transpiler.OMP_Transpiler.vectorizeFor" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="omp_transpiler.OMP_Transpiler.template_file_dict">
+<code class="sig-name descname">template_file_dict</code><em class="property"> = {'code_template.cpp': 'main.cpp', 'definitions.h': 'definitions.h'}</em><a class="headerlink" href="#omp_transpiler.OMP_Transpiler.template_file_dict" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="omp_transpiler.OMP_Transpiler.equation_transpiler_class">
+<code class="sig-name descname">equation_transpiler_class</code><a class="headerlink" href="#omp_transpiler.OMP_Transpiler.equation_transpiler_class" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">src.codegen.EquationTranspiler.CBased_EquationTranspiler</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="omp_transpiler.OMP_Transpiler.parameter_buffer">
+<code class="sig-name descname">parameter_buffer</code><em class="property"> = 'p'</em><a class="headerlink" href="#omp_transpiler.OMP_Transpiler.parameter_buffer" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="omp_transpiler.OMP_Transpiler.result_buffer">
+<code class="sig-name descname">result_buffer</code><em class="property"> = 'array'</em><a class="headerlink" href="#omp_transpiler.OMP_Transpiler.result_buffer" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="omp_transpiler.OMP_Transpiler.last_step_buffer">
+<code class="sig-name descname">last_step_buffer</code><em class="property"> = '(array - time_block)'</em><a class="headerlink" href="#omp_transpiler.OMP_Transpiler.last_step_buffer" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="omp_transpiler.OMP_Transpiler.intermediate_buffer">
+<code class="sig-name descname">intermediate_buffer</code><em class="property"> = 'v'</em><a class="headerlink" href="#omp_transpiler.OMP_Transpiler.intermediate_buffer" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="omp_transpiler.OMP_Transpiler.simd_scale">
+<code class="sig-name descname">simd_scale</code><em class="property"> = 'k + block_size * '</em><a class="headerlink" href="#omp_transpiler.OMP_Transpiler.simd_scale" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="omp_transpiler.OMP_Transpiler.generate_config">
+<code class="sig-name descname">generate_config</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/omp_transpiler.html#OMP_Transpiler.generate_config"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#omp_transpiler.OMP_Transpiler.generate_config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implements TemplateTranspilers generate_config.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="omp_transpiler.OMP_Transpiler.generate_assignments">
+<code class="sig-name descname">generate_assignments</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/omp_transpiler.html#OMP_Transpiler.generate_assignments"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#omp_transpiler.OMP_Transpiler.generate_assignments" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates code for assigning the solutions for the current timestep to the variables.
+Adds the code to the config with key ‘assignments’.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="omp_transpiler.OMP_Transpiler.generate_loop">
+<code class="sig-name descname">generate_loop</code><span class="sig-paren">(</span><em class="sig-param">curr_eq</em>, <em class="sig-param">loop_type</em>, <em class="sig-param">loop_iterations</em>, <em class="sig-param">condition</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/omp_transpiler.html#OMP_Transpiler.generate_loop"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#omp_transpiler.OMP_Transpiler.generate_loop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate code to implement the loop specified in the parameters.</p>
+<p>Overrides <code class="docutils literal notranslate"><span class="pre">generate_loop(self,</span> <span class="pre">curr_eq,</span> <span class="pre">loop_type,</span> <span class="pre">loop_iterations,</span> <span class="pre">condition)</span></code> from parent class TemplateTranspiler.
+This is neccessary because the OpenMP code contains SIMD-vectorizable loops that differ from the standard C-loops generated by the EquationTranspiler.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>loop_content</strong> (<em>sympy.codegen.ast.While</em>) – Sympy while loop with the loop body being a sympy expression</p></li>
+<li><p><strong>loop_type</strong> (<em>str</em>) – Type of the generated loop.</p></li>
+<li><p><strong>loop_iterations</strong> (<em>int</em>) – Number of times the loop will be executed (if it is iterative).</p></li>
+<li><p><strong>condition</strong> (<em>sympy.logic.boolalg.Boolean</em>) – Sympy expression for the iteration condition of the loop (if applicable), e.g. i&lt;5.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A string with the code.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="omp_transpiler.OMP_Transpiler.generate_vectorizable_forloop">
+<code class="sig-name descname">generate_vectorizable_forloop</code><span class="sig-paren">(</span><em class="sig-param">body</em>, <em class="sig-param">loop_iterations</em>, <em class="sig-param">loop_type</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/omp_transpiler.html#OMP_Transpiler.generate_vectorizable_forloop"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#omp_transpiler.OMP_Transpiler.generate_vectorizable_forloop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates the body of a OpenMP SIMD vectorizable nested for loop for implicit methods.</p>
+<p>The loop structure is the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="n">vector</span> <span class="n">of</span> <span class="n">parameter</span> <span class="n">sets</span><span class="p">)</span>  <span class="p">(</span><span class="o">*</span><span class="p">)</span>
+    <span class="n">initialize</span> <span class="n">RK</span><span class="o">-</span><span class="n">stages</span>        <span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">iteration</span> <span class="n">steps</span><span class="p">)</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">vector</span> <span class="n">of</span> <span class="n">parameter</span> <span class="n">sets</span><span class="p">)</span>
+        <span class="n">iterate</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">vector</span> <span class="n">of</span> <span class="n">parameter</span> <span class="n">sets</span><span class="p">)</span>
+    <span class="n">assign</span> <span class="n">step</span> <span class="n">solution</span>        <span class="p">(</span><span class="o">*</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The lines marked with (*) are generated by other functions.
+This function only generates code for the central part that is not marked.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>body</strong> (<em>sympy.codegen.ast.CodeBlock</em>) – Code block that contains the equations of the loop body</p></li>
+<li><p><strong>loop_type</strong> (<em>str</em>) – Type of the generated loop.</p></li>
+<li><p><strong>loop_iterations</strong> (<em>int</em>) – Number of times the loop will be executed (if it is iterative).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A string with the code for the relevant loop part.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="omp_transpiler.OMP_Transpiler.generate_equations">
+<code class="sig-name descname">generate_equations</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/omp_transpiler.html#OMP_Transpiler.generate_equations"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#omp_transpiler.OMP_Transpiler.generate_equations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extends <code class="docutils literal notranslate"><span class="pre">generate_equations</span></code> from TemplateTranspiler by adding the equations in a second form that overwrites old values.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="omp_transpiler.OMP_Transpiler.adapt_backwardRK_variables">
+<code class="sig-name descname">adapt_backwardRK_variables</code><span class="sig-paren">(</span><em class="sig-param">variable_name</em>, <em class="sig-param">line</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/omp_transpiler.html#OMP_Transpiler.adapt_backwardRK_variables"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#omp_transpiler.OMP_Transpiler.adapt_backwardRK_variables" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adapt the symbols for the variables for the Runge-Kutta stages in implicit/backwards Runge-Kutta methods for use of arrays.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Variable_name</span><span class="p">:</span> <span class="n">x_0_RK0</span>
+<span class="n">Returned</span><span class="p">:</span> <span class="n">x_0_RK0</span> <span class="o">=</span> <span class="n">Symbol</span><span class="p">(</span><span class="s2">&quot;RK0[num_equations * 0 * block_size +  k + block_size *  0]&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>variable_name</strong> (<em>str</em>) – Original name of the variable.</p></li>
+<li><p><strong>line</strong> (<em>str</em>) – Line of the record file where the symbol for the variable is created</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The adapted line if adaptation is neccessary (the line contains a backwards Runge-Kutta stage variable) or the original line otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="omp_transpiler.OMP_Transpiler.adapt_parameter_name">
+<code class="sig-name descname">adapt_parameter_name</code><span class="sig-paren">(</span><em class="sig-param">parameter_count</em>, <em class="sig-param">variable_name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/omp_transpiler.html#OMP_Transpiler.adapt_parameter_name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#omp_transpiler.OMP_Transpiler.adapt_parameter_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Change the parameter names from names (e.g. rho) to array entries (e.g. p[0]).</p>
+<p>Call array_element_symbol to generate and return a string of form:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;variable_name = Symbol(&quot;parameter_buffer[parameter_count]&quot;)&#39;</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>parameter_count</strong> (<em>int</em>) – Index of the parameter.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="omp_transpiler.OMP_Transpiler.adapt_variable_name">
+<code class="sig-name descname">adapt_variable_name</code><span class="sig-paren">(</span><em class="sig-param">index</em>, <em class="sig-param">time_offset</em>, <em class="sig-param">variable_name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/omp_transpiler.html#OMP_Transpiler.adapt_variable_name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#omp_transpiler.OMP_Transpiler.adapt_variable_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Change the parameter names from x_1 to array entries (e.g. v[0]).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>index</strong> (<em>int</em>) – Index of the variable (e.g. 1 for x_1).</p></li>
+<li><p><strong>time_offset</strong> (<em>int</em>) – Time offset of the variable (see record file for the ODE system).</p></li>
+<li><p><strong>variable_name</strong> (<em>str</em>) – New name of array for the parameters.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A string that assigns the variable with the original name a sympy symbol with the new name.</p>
+</dd>
+</dl>
+<div class="admonition-todo admonition" id="id1">
+<p class="admonition-title">Todo</p>
+<p>Deal with methods that look at more than 1 past steps at the same time here!</p>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Anna Mittermair
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

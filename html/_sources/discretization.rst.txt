@@ -1,0 +1,80 @@
+Discretization
+=================
+Takes the input ODE system and integration method and creates a new configuration file containing sympy equations for the discretized system.
+
+* **Input:** Python module file containing the ODE system as sympy equations and the discretization method (given as a string key).
+* **Output:** Python module file containing the discretized ODE system as sympy equations.
+* **Script for executing stage:** main_disc
+* **Options:** discrete_records_filename, configuration_filename, methods
+
+There are the following discretization options:
+
+**Explicit**:
+ * **Euler method**
+ * **Heun's method**
+ * **Midpoint method**
+ * Runge-Kutta methods (some are mathematically equivalent to methods listed above)
+
+   - **RK1** (= Euler method)
+   - **RK2** (= Midpoint method)
+   - **RK4**
+
+**Implicit**
+ * Implicit/Backward Euler method
+ * Implicit Runge-Kutta methods using a diagonalization approach (for faster integration)
+
+   - Implicit/Backward Runge-Kutta of order 1 (mathematically equivalent to the Implicit Euler method, produces equivalent but not identical equations)
+   - DIRK2 (2 stages, order 2)
+   - DIRK3 (4 stages, order 3)
+   - DIRK4 (3 stages, order 4)
+   - Implicit Midpoint method (2 stages, order 2)
+   - Gauss–Legendre method of order four (2 stages, order 4)
+
+* **Other options**
+
+  + Strang Splitting
+  + Operator Splitting
+
+More details on the methods can be found ...
+
+
+Structure / Implementation
+----------------------------------
+The TimeIntegratorUnit class is a template for time integration Methods. This class itself cannot be instantiated.
+It ensures, that every method contains a term, the timestep length, a list of all variables and
+a method adapt_terms that returns a term consisting of only timestep specific variables (i.e. x_n) corresponding to the given term and the annotated method.
+This method has to be implemented in every subclass. (For Examples see any subclass of TimeIntegratorUnit.)
+
+Different classes of integration methods are implemented as abstract subclasses of TimeIntegratorUnit that are in turn parent classes for the specific integration methods.
+
+
+.. currentmodule:: TimeIntegratorUnit
+
+.. inheritance-diagram::
+   ExplicitEuler
+   Heun
+   RungeKutta1
+   RungeKutta2
+   RungeKutta4
+   Midpoint
+   OrdinarySplitting
+   StrangSplitting
+   BackwardEuler
+   BackwardRungeKutta1
+   ImplicitMidpoint
+   DIRK2
+   DIRK3
+   DIRK4
+   GL4
+   :parts: -1
+   :top-classes: TimeIntegratorUnit.TimeIntegratorUnit
+
+Organisation of the TimeIntegratorUnitClasses
+
+Extending the discretization stage  / Adding new discretization methods
+--------------------------------------------------------------------------------
+
+1. Create a new subclass of TimeIntegratorUnit (or any of its subclasses).
+2. Implement the method adapt_term to that creates the discretized equations.
+3. Extend the annotation_dict in TimeIntegratorUnit with entries that connect the name of the class in this file with the keys used in the input to select the method. Example: "RungeKutta1" : RungeKutta1, "RK1": RungeKutta1 connects the keys RungeKutta1 and RK1 to the RungeKutta1 class.
+4. Optional: Extend annotate_TIU in class ODE to create an instance of TimeIntegratorAnnotatedODE corresponding to this instance of ODE and the prior specified time integration methods. Without this the default instantiation for standard methods (e.g. the Explicit Euler method) is used.

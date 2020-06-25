@@ -1,0 +1,9 @@
+<map id="inheritanceaf03e5220b" name="inheritanceaf03e5220b">
+<area shape="rect" id="node1" title="Transpiler that generates OpenCL C++&#45;Code for numerical integration." alt="" coords="5,152,132,177"/>
+<area shape="rect" id="node2" title="Abstract base class for for transpilers generating code for a specific language by modifying a template." alt="" coords="203,79,343,104"/>
+<area shape="rect" id="node3" title="Transpiler that generates C&#45;Code for numerical integration." alt="" coords="157,152,255,177"/>
+<area shape="rect" id="node4" title="Transpiler that generates OpenMP C++&#45;Code for numerical integration." alt="" coords="280,152,399,177"/>
+<area shape="rect" id="node5" title="Transpiler that generates OpenCL Code for numerical integration." alt="" coords="423,152,562,177"/>
+<area shape="rect" id="node6" title="Transpiler that generates C&#45;Code for numerical integration." alt="" coords="367,79,517,104"/>
+<area shape="rect" id="node7" title="Abstract template for transpilers generating code for a specific language." alt="" coords="315,5,398,31"/>
+</map>

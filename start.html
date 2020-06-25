@@ -1,0 +1,628 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>First steps &mdash; tidowa  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Overview" href="overview.html" />
+    <link rel="prev" title="General Usage" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> tidowa
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">First steps</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#setup">1) Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#instructions-on-how-to-use-the-odeintegrator">2) Instructions on how to use the ODEIntegrator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#stage-1-discretization">2.1. Stage 1: Discretization</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#writing-an-ode-record">Writing an ODE record</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#example-configurations">Example Configurations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#running-the-discretization-stage">Running the Discretization Stage</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#stage-2-code-generation">2.2. Stage 2: Code-Generation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#specify-initial-values-and-parameter-values">Specify Initial Values and Parameter Values</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#stage-3-compilation">2.3. Stage 3: Compilation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#stage-4-execution">2.3. Stage 4: Execution</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#stage-5-plotting">2.4 Stage 5: Plotting</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#example-of-a-full-program-use-cycle">3. Example of a full program use cycle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#todos">TODOS</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html#discretization">Discretization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html#code-generation">Code Generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html#compilation">Compilation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html#execution">Execution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html#first-steps">First steps</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">tidowa</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>First steps</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/start.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="first-steps">
+<h1>First steps<a class="headerlink" href="#first-steps" title="Permalink to this headline">¶</a></h1>
+<p>These instructions will guide you through the different stages of the program and show you
+how to fit your own data into the program, so that your ODE will be integrated correctly.</p>
+<div class="admonition-todo admonition" id="id1">
+<p class="admonition-title">Todo</p>
+<ol class="arabic simple">
+<li><p>Add parts from overview</p></li>
+<li><p>Change parts that changed</p></li>
+<li><p>Add parts for things I added</p></li>
+<li><p>Format</p></li>
+</ol>
+</div>
+<div class="section" id="setup">
+<h2>1) Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
+<div class="admonition-todo admonition" id="id2">
+<p class="admonition-title">Todo</p>
+<p>Add / change setup</p>
+</div>
+<dl class="simple">
+<dt>0.1 Get required application + libraries:</dt><dd><p>…</p>
+</dd>
+</dl>
+<p>0.2 Before startup: Insert/change necessary paths in compiler_configs.ini and Makefile</p>
+<p>0.3 Testing:</p>
+<ul class="simple">
+<li><p>Change/add data or record files (found in data and tests folders).</p></li>
+<li><p>Execution of some parts, plotting and unit tests are possible using the Makefile.</p></li>
+<li><p>The main_debug file has functionalities for some systematic testing, running and changing the configuration of single tests, simple plotting and simple time measurement and correctness tests. -&gt; For basic info on how to use program functions or simple testing start at these two points (or in any file starting with main).</p></li>
+</ul>
+</div>
+<div class="section" id="instructions-on-how-to-use-the-odeintegrator">
+<h2>2) Instructions on how to use the ODEIntegrator<a class="headerlink" href="#instructions-on-how-to-use-the-odeintegrator" title="Permalink to this headline">¶</a></h2>
+<div class="admonition-todo admonition" id="id3">
+<p class="admonition-title">Todo</p>
+<ol class="arabic simple">
+<li><p>Passt Reponame?</p></li>
+<li><p>Passen Anführungszeichen</p></li>
+<li><p>Passt make command noch?</p></li>
+</ol>
+</div>
+<p>These instructions will guide you through the different stages of the program and show you
+how to fit your own data into the program, so that your ODE will be integrated correctly.
+The first thing you should do is open a command shell and move into the program repository
+<code class="docutils literal notranslate"><span class="pre">tidowa</span></code>.</p>
+<p>Before every new use of the Program use the <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">clean</span></code> command to clean all discretized
+records and generated code.</p>
+<div class="section" id="stage-1-discretization">
+<h3>2.1. Stage 1: Discretization<a class="headerlink" href="#stage-1-discretization" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="writing-an-ode-record">
+<h4>Writing an ODE record<a class="headerlink" href="#writing-an-ode-record" title="Permalink to this headline">¶</a></h4>
+<p>To use the program for your own ODE system, navigate to the <code class="docutils literal notranslate"><span class="pre">data/disc/</span></code> directory
+and edit the file <code class="docutils literal notranslate"><span class="pre">configuration_template.py</span></code>. In this file you will probably find the implementation of the previously used ODE. Fill the variables in this file with your specific data in the
+following way:</p>
+<p>Make sure to import the <code class="docutils literal notranslate"><span class="pre">sympy</span></code> library at the start of your file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sympy</span> <span class="k">as</span> <span class="nn">sp</span>
+</pre></div>
+</div>
+<p>Then specify your ode system using the following directives:</p>
+<div class="section" id="parameternames">
+<h5>parameternames<a class="headerlink" href="#parameternames" title="Permalink to this headline">¶</a></h5>
+<p>This is a string with all parameters appearing in your ODE, seperated
+by whitespaces. Be sure to also declare these parameters seperated by commas on the left side.</p>
+<p><em>Example:</em>
+An ODE with two parameter <code class="docutils literal notranslate"><span class="pre">lambda1</span></code> and <code class="docutils literal notranslate"><span class="pre">lambda2</span></code> needs a config containing:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">parameternames</span> <span class="o">=</span> <span class="s1">&#39;lambda1 lambda2&#39;</span>
+<span class="n">lambda1</span><span class="p">,</span> <span class="n">lambda2</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="n">parameternames</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="variablenames">
+<h5>variablenames<a class="headerlink" href="#variablenames" title="Permalink to this headline">¶</a></h5>
+<p>Similar to parameternames, this is a string with all variables appearing in
+your ODE, seperated by whitespaces. Be sure to also declare these variables seperated by com-mas on the left side of the next line.</p>
+<p><em>Example:</em> An ODE with two variables <code class="docutils literal notranslate"><span class="pre">u</span></code> and <code class="docutils literal notranslate"><span class="pre">v</span></code> needs a config containing:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">variablenames</span> <span class="o">=</span> <span class="s1">&#39;u v&#39;</span>
+<span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="n">variablenames</span><span class="p">,</span> <span class="bp">cls</span><span class="o">=</span><span class="n">sp</span><span class="o">.</span><span class="n">Function</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="ode">
+<h5>ode<a class="headerlink" href="#ode" title="Permalink to this headline">¶</a></h5>
+<p>This is a tuple of sympy Equality-Objects, which are created by calling Eq() with the right
+functionparameter. The Equality class is initialized with two functionparameter called lhs and
+rhs. An object Eq(lhs, rhs) symbolizes a mathematical equation of form <code class="docutils literal notranslate"><span class="pre">lhs</span> <span class="pre">=</span> <span class="pre">rhs</span></code>. Make sure
+to only use parameter that you defined before. Make sure to write every variable depending on
+<code class="docutils literal notranslate"><span class="pre">t</span></code> (i.e. v(t)). Make sure you only use arithmetic operators, not sympy classes. Make sure to
+only enter equations of the form:</p>
+<div class="math notranslate nohighlight">
+\[y'(t) = f (t, y(t))\]</div>
+<p>First order derivatives are symbolized with sympy in the form <code class="docutils literal notranslate"><span class="pre">y(t).diff(t)</span></code></p>
+<p><em>Example:</em> An ODE with the parameter and variables of the two examples above and the two
+equations:</p>
+<div class="math notranslate nohighlight">
+\[u'(t) = −\lambda_1 \cdot v(t)\]</div>
+<div class="math notranslate nohighlight">
+\[v'(t) = \lambda_2 \cdot u(t) + 1\]</div>
+<p>Then the config to this ODE should be containing:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ode</span> <span class="o">=</span> <span class="p">(</span>
+<span class="n">sp</span><span class="o">.</span><span class="n">Eq</span><span class="p">(</span><span class="n">u</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="o">-</span><span class="n">lambda1</span><span class="o">*</span><span class="n">v</span><span class="p">(</span><span class="n">t</span><span class="p">)),</span>
+<span class="n">sp</span><span class="o">.</span><span class="n">Eq</span><span class="p">(</span><span class="n">v</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="n">lambda2</span><span class="o">*</span><span class="n">u</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Equations can be built using standard mathematical opererators like <code class="docutils literal notranslate"><span class="pre">+,</span> <span class="pre">-,</span> <span class="pre">*,</span> <span class="pre">**,</span> <span class="pre">/,</span> <span class="pre">exp(),</span> <span class="pre">&lt;,</span> <span class="pre">=</span></code> that correspond to the same semantics as in Python and sympy operators</p>
+<div class="admonition-todo admonition" id="id4">
+<p class="admonition-title">Todo</p>
+<p>link /explain sympy</p>
+</div>
+</div>
+<div class="section" id="methods">
+<h5>methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h5>
+<p>This is a tuple containing the methods used for integrating each single equation in
+the ODE. The methods are defined as a string and the indexing of these variables corresponds
+to the indexing of the equations in the ode-variable. The currently implemented integration
+methods are: <code class="docutils literal notranslate"><span class="pre">ExplicitEuler</span></code>, <code class="docutils literal notranslate"><span class="pre">RungeKutta1</span></code> (Explicit Euler), <code class="docutils literal notranslate"><span class="pre">RungeKutta2</span></code> (Midpoint),
+<code class="docutils literal notranslate"><span class="pre">RungeKutta4</span></code> (RK4), <code class="docutils literal notranslate"><span class="pre">Heun</span></code> and <code class="docutils literal notranslate"><span class="pre">Midpoint</span></code> .</p>
+<p><em>Example:</em> If the first equation of the ODE from the examples above should be integrated with
+the explicit Euler method and the second with a 4th order Runge-Kutta, then this needs a
+config containing:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">methods</span> <span class="o">=</span> <span class="p">(</span>
+<span class="s1">&#39;ExplicitEuler&#39;</span><span class="p">,</span>
+<span class="s1">&#39;RungeKutta&#39;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>If you want to use the Operator Splitting techniques make sure you write the splitting method
+you want to use first and then the two methods you want to integrate the split up terms
+with, each seperated by whitespaces. The Operator splitting does only work if you have an
+addition as the mathematically last evaluated operation. The operator splitting will split the
+term on the left most addend and the rest of the addends. It is not possible to use an operator
+splitting technique recursively (i.e. <code class="docutils literal notranslate"><span class="pre">OrdinarySplitting</span> <span class="pre">ExplicitEuler</span> <span class="pre">OrdinarySplitting</span> <span class="pre">ExplicitEuler</span> <span class="pre">ExplicitEuler</span></code>).
+<em>Example:</em> For the ODE of the examples above:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">methods</span> <span class="o">=</span> <span class="p">(</span>
+<span class="s1">&#39;Midpoint&#39;</span><span class="p">,</span>
+<span class="s1">&#39;StrangSplitting ExplicitEuler ExplicitEuler&#39;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Also make sure, that any sympy class, i.e. Symbol or Eq, called in your config is referenced
+with the correct prefix, as in the case of the examples sp.</p>
+</div>
+</div>
+<div class="section" id="example-configurations">
+<h4>Example Configurations<a class="headerlink" href="#example-configurations" title="Permalink to this headline">¶</a></h4>
+<p>An example for a complete configuration file is the following:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sympy</span> <span class="kn">as</span> <span class="nn">sp</span>
+
+<span class="c1"># parameter</span>
+<span class="c1"># denote all parameter of the problem devided by whitespaces in the &#39;parameter&#39; String</span>
+<span class="n">parameternames</span> <span class="o">=</span> <span class="s1">&#39;alpha1 beta1 alpha2 beta2&#39;</span>
+<span class="n">alpha1</span><span class="p">,</span> <span class="n">beta1</span><span class="p">,</span> <span class="n">alpha2</span><span class="p">,</span> <span class="n">beta2</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="n">parameternames</span><span class="p">)</span>
+
+<span class="c1"># variables</span>
+<span class="c1"># time variable t is reserved</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Symbol</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">)</span>
+<span class="c1"># denote all variables of the problem devided by whitespaces in the &#39;variables&#39; String</span>
+<span class="n">variablenames</span> <span class="o">=</span> <span class="s1">&#39;u v&#39;</span>
+<span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="n">variablenames</span><span class="p">,</span> <span class="bp">cls</span><span class="o">=</span><span class="n">sp</span><span class="o">.</span><span class="n">Function</span><span class="p">)</span>
+
+<span class="c1"># ODE</span>
+<span class="c1"># denote all ODE in the form Eq(left side, right side)</span>
+<span class="n">ode</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">sp</span><span class="o">.</span><span class="n">Eq</span><span class="p">(</span><span class="n">u</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="n">alpha1</span> <span class="o">*</span> <span class="n">v</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">+</span> <span class="n">beta1</span> <span class="o">*</span> <span class="n">v</span><span class="p">(</span><span class="n">t</span><span class="p">)),</span>
+        <span class="n">sp</span><span class="o">.</span><span class="n">Eq</span><span class="p">(</span><span class="n">v</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="n">alpha2</span> <span class="o">*</span> <span class="n">u</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">+</span> <span class="n">beta2</span> <span class="o">*</span> <span class="n">u</span><span class="p">(</span><span class="n">t</span><span class="p">)),</span>
+<span class="p">)</span>
+
+<span class="c1"># integration method</span>
+<span class="n">methods</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="s1">&#39;StrangSplitting Midpoint Midpoint&#39;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>You can also find pre-implemented config-files, stored in the <code class="docutils literal notranslate"><span class="pre">data/disc/example_configurations/</span></code>
+directory and load them with the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ make load_config filepath=relative/path/to/file
+</pre></div>
+</div>
+</div>
+<div class="section" id="running-the-discretization-stage">
+<h4>Running the Discretization Stage<a class="headerlink" href="#running-the-discretization-stage" title="Permalink to this headline">¶</a></h4>
+<p>The discretization stage will produce a record in the directory <code class="docutils literal notranslate"><span class="pre">data/codegen/discrete_records/</span></code>.
+The next stage (code-generation) will use the record in here called <code class="docutils literal notranslate"><span class="pre">record_1.py</span></code>. If there are
+any records in here from previous program runs, which you don’t need anymore be sure to call:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ make clean_records
+</pre></div>
+</div>
+<p>If you are pleased with your <code class="docutils literal notranslate"><span class="pre">config_template.py</span></code> you can complete the discretization stage by calling:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ make discretize
+</pre></div>
+</div>
+<p>This command will run the file <code class="docutils literal notranslate"><span class="pre">main_disc.py</span></code> which is responsible for everything, that happens in the discretization stage.</p>
+<p>If you have hit the <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">discretize</span></code> command and no error occured, the discretization stage is completed and there should be a new record (i.e. <code class="docutils literal notranslate"><span class="pre">record_1.py</span></code>) in the directory <code class="docutils literal notranslate"><span class="pre">data/disc/discrete_records</span></code>. This new file contains the discretized version of your ODE, as well
+as some variable declarations.</p>
+</div>
+</div>
+<div class="section" id="stage-2-code-generation">
+<h3>2.2. Stage 2: Code-Generation<a class="headerlink" href="#stage-2-code-generation" title="Permalink to this headline">¶</a></h3>
+<p>After completing the discretization stage, there should be a new record in the directory <code class="docutils literal notranslate"><span class="pre">data/disc/discretized_records</span></code>. These records yield all the information needed to start the Code-
+Generator. Make sure, that the record you want to generate code for is called <code class="docutils literal notranslate"><span class="pre">record_1.py</span></code>, as
+only the record with this name will be used by the Code-Generator.</p>
+<p>If you are sure, that the record is named correctly you can start the Code-Generator using
+the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ make generate
+</pre></div>
+</div>
+<div class="admonition-todo admonition" id="id5">
+<p class="admonition-title">Todo</p>
+<p>which generators are there?
+change file names / directories cause languages are there?</p>
+</div>
+<p>If you have hit the <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">generate</span></code> command and no error occured, there should be a new
+C-file in the directory <code class="docutils literal notranslate"><span class="pre">src/exec/ccode/</span></code>, named <code class="docutils literal notranslate"><span class="pre">calc_func.c</span></code>. This file implements the calculation of the values of all variables in your ODE.</p>
+<div class="section" id="specify-initial-values-and-parameter-values">
+<h4>Specify Initial Values and Parameter Values<a class="headerlink" href="#specify-initial-values-and-parameter-values" title="Permalink to this headline">¶</a></h4>
+<p>At this point, you should input a CSV-file into the program, containing the initialvalues, as
+well as the values of the parameter, specified in the <code class="docutils literal notranslate"><span class="pre">config_template.py</span></code>. The exact format of
+each line in this CSV-file is as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">variablevalue1</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">variablevalue2</span><span class="o">&gt;</span> <span class="o">...</span> <span class="p">;</span> <span class="o">&lt;</span><span class="n">parametervalue1</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">parametervalue2</span><span class="o">&gt;</span> <span class="o">...</span>
+</pre></div>
+</div>
+<p><em>Example:</em> An examplary line of the input CSV-file for the example of the discretization stage
+could be as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="mi">2</span> <span class="p">;</span> <span class="o">-</span><span class="mi">1</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p>This would mean, that <code class="docutils literal notranslate"><span class="pre">u</span></code> has an initialvalue of 1, <code class="docutils literal notranslate"><span class="pre">v</span></code> has an initialvalue of 2, <code class="docutils literal notranslate"><span class="pre">lambda1</span></code> has
+a value of -1 and <code class="docutils literal notranslate"><span class="pre">lambda2</span></code> has a value of 1, assuming the exemplary <code class="docutils literal notranslate"><span class="pre">config_template.py</span></code>
+from the last section. Make sure, that the order of the values of the variables and parameter
+here, corresponds to the order of the variables and parameter in the <code class="docutils literal notranslate"><span class="pre">config_template.py</span></code> respectively.
+If you are done creating this input CSV-file, place it in the folder <code class="docutils literal notranslate"><span class="pre">data/exec/input/</span></code> and
+call it <code class="docutils literal notranslate"><span class="pre">input.csv</span></code>. The program will later search for a file named <code class="docutils literal notranslate"><span class="pre">input.csv</span></code> and load its content line by line. You can also use already implemented input CSV-files (There exists one for
+each example config) by loading them from the <code class="docutils literal notranslate"><span class="pre">tests/test_input/</span></code> directory, with the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ make load_input filepath=path/to/input/csv/file
+</pre></div>
+</div>
+<p><em>Example for the ODE of all previous examples in this file</em>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ make load_input filepath=tests/test_input/test_input_osc.csv
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="stage-3-compilation">
+<h3>2.3. Stage 3: Compilation<a class="headerlink" href="#stage-3-compilation" title="Permalink to this headline">¶</a></h3>
+<p>This stage mostly consists of the <code class="docutils literal notranslate"><span class="pre">make</span></code> commands, as it exists for compiling and executing
+the program. If you have completed the first two stages, there should now exist a file, containing
+the Code to calculate all variable values (i.e. <code class="docutils literal notranslate"><span class="pre">calc_func.c</span></code>).</p>
+</div>
+<div class="section" id="stage-4-execution">
+<h3>2.3. Stage 4: Execution<a class="headerlink" href="#stage-4-execution" title="Permalink to this headline">¶</a></h3>
+<p>This stage mostly consists of the <code class="docutils literal notranslate"><span class="pre">make</span></code> commands, as it exists for compiling and executing
+the program. If you have completed the first two stages, there should now exist a file, containing
+the Code to calculate all variable values (i.e. <code class="docutils literal notranslate"><span class="pre">calc_func.c</span></code>).</p>
+<p>To complete the execution stage type the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ make C filepath=path/to/input/csv/file
+</pre></div>
+</div>
+<p>There aremultiple languages here to choose from, but for now we
+concentrate on C. The program will now first compile all C files necessary for the calculations,
+using the <code class="docutils literal notranslate"><span class="pre">gcc</span></code> Compiler. This will create an executable called <code class="docutils literal notranslate"><span class="pre">c_main_exec</span></code> in the <code class="docutils literal notranslate"><span class="pre">build/</span></code>
+directory.</p>
+<p>After the compilation the executable will be automatically run taking the CSV-file specified
+after <code class="docutils literal notranslate"><span class="pre">filepath</span></code> as command line argument. If you did not specify the <code class="docutils literal notranslate"><span class="pre">filepath</span></code> option (i.e.
+<code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">C</span></code>), the program will take the file named <code class="docutils literal notranslate"><span class="pre">input.csv</span></code> in the <code class="docutils literal notranslate"><span class="pre">data/exec/input/</span></code> directory.
+If you do not delete the <code class="docutils literal notranslate"><span class="pre">c_main_exec</span></code> file, the next call of <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">C</span></code> will skip compiling the
+code again and directly run the executable.
+The execution of the program will create a number of files equal to the number of lines in
+your input CSV-file. Each of these files contains lines with the chronologically ordered time -
+variablevalues pairs in CSV-format. The numbering of these files corresponds to the index of
+the line (starting with 0) in the input CSV-file, which has created this output. In Example the
+third line of an input CSV-file will create a data output file called <code class="docutils literal notranslate"><span class="pre">2_data.csv</span></code>.</p>
+<div class="section" id="stage-5-plotting">
+<h4>2.4 Stage 5: Plotting<a class="headerlink" href="#stage-5-plotting" title="Permalink to this headline">¶</a></h4>
+<p>Finally you can plot the output data using the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ make plot filepath=path/to/output/data against=yes/no var=variablelist
+</pre></div>
+</div>
+<p>If filepath is left empty the plotter will use the file called <code class="docutils literal notranslate"><span class="pre">0_data.csv</span></code> in the <code class="docutils literal notranslate"><span class="pre">data/exec/output/</span></code>
+directory. The <code class="docutils literal notranslate"><span class="pre">var</span></code> option can be used to specify, which variables to plot. Define them as a
+string, with each variable seperated by a whitespace. For Example if you want to plot the variables <code class="docutils literal notranslate"><span class="pre">u</span></code> and <code class="docutils literal notranslate"><span class="pre">v</span></code> then use the command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>make plot var=``u v``
+</pre></div>
+</div>
+<p>The plotter will then plot each of these variables against the time (t) in a seperate window. If
+the <code class="docutils literal notranslate"><span class="pre">var</span></code> option is not specified all variables will be plotted against time.
+You can also use the <code class="docutils literal notranslate"><span class="pre">against</span></code> option if you want to specify two variables against each other
+and not against time. To do this use <code class="docutils literal notranslate"><span class="pre">against=yes</span></code> and specify exactly two variables in the
+<code class="docutils literal notranslate"><span class="pre">var</span></code> option. For example if you want to plot <code class="docutils literal notranslate"><span class="pre">u</span></code> against <code class="docutils literal notranslate"><span class="pre">v</span></code> use the command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ make plot against=yes var=``u v``
+</pre></div>
+</div>
+<div class="admonition-todo admonition" id="id6">
+<p class="admonition-title">Todo</p>
+<p>add my new plot method</p>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">against</span></code> option is set to <code class="docutils literal notranslate"><span class="pre">no</span></code> by default.
+To clean up for the next use of the program you can use the clean commands in the make
+file. For example <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">clean</span></code> cleans up any records from the discretization stage, code produced in the code generation stage, and output and executables generated in the execution stage.</p>
+</div>
+</div>
+</div>
+<div class="section" id="example-of-a-full-program-use-cycle">
+<h2>3. Example of a full program use cycle<a class="headerlink" href="#example-of-a-full-program-use-cycle" title="Permalink to this headline">¶</a></h2>
+<div class="admonition-todo admonition" id="id7">
+<p class="admonition-title">Todo</p>
+<p>make bash</p>
+</div>
+<p>The following bashcode describes a full exemplary use cycle of the program:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ make clean
+$ make load_config filepath=oscillating/config_osc.py
+$ make load_input filepath=tests/test_input/test_input_osc.csv
+$ make discretize
+$ make generate
+$ make C
+$ make plot against=yes var=``u v``
+</pre></div>
+</div>
+</div>
+<div class="section" id="todos">
+<h2>TODOS<a class="headerlink" href="#todos" title="Permalink to this headline">¶</a></h2>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Deal with methods that look at more than 1 past steps at the same time here!</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="cuda_transpiler.html#id1"><em>original entry</em></a> is located in /home/anna/Desktop/Uni/IDP/Code/Repo/tidowa/src/codegen/cuda_transpiler.py:docstring of cuda_transpiler.CUDA_Transpiler.adapt_variable_name, line 12.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Organize imports + file paths</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="main_codegen.html#id1"><em>original entry</em></a> is located in /home/anna/Desktop/Uni/IDP/Code/Repo/tidowa/main_codegen.py:docstring of main_codegen.main, line 18.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Bit of clean up.</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="main_debug.html#id1"><em>original entry</em></a> is located in /home/anna/Desktop/Uni/IDP/Code/Repo/tidowa/main_debug.py:docstring of main_debug, line 3.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Deal with methods that look at more than 1 past steps at the same time here!</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="omp_transpiler.html#id1"><em>original entry</em></a> is located in /home/anna/Desktop/Uni/IDP/Code/Repo/tidowa/src/codegen/omp_transpiler.py:docstring of omp_transpiler.OMP_Transpiler.adapt_variable_name, line 12.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>To make t0 selectable make a change here.</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="opencl_transpiler.html#id1"><em>original entry</em></a> is located in /home/anna/Desktop/Uni/IDP/Code/Repo/tidowa/src/codegen/opencl_transpiler.py:docstring of opencl_transpiler.OpenCL_Transpiler.generate_config, line 5.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Deal with methods that look at more than 1 past steps at the same time here!</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="opencl_transpiler.html#id2"><em>original entry</em></a> is located in /home/anna/Desktop/Uni/IDP/Code/Repo/tidowa/src/codegen/opencl_transpiler.py:docstring of opencl_transpiler.OpenCL_Transpiler.adapt_variable_name, line 10.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<ol class="arabic simple">
+<li><p>Add parts from overview</p></li>
+<li><p>Change parts that changed</p></li>
+<li><p>Add parts for things I added</p></li>
+<li><p>Format</p></li>
+</ol>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="#id1"><em>original entry</em></a> is located in /home/anna/Desktop/Uni/IDP/Code/Repo/tidowa/doc/new/start.rst, line 6.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Add / change setup</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="#id2"><em>original entry</em></a> is located in /home/anna/Desktop/Uni/IDP/Code/Repo/tidowa/doc/new/start.rst, line 16.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<ol class="arabic simple">
+<li><p>Passt Reponame?</p></li>
+<li><p>Passen Anführungszeichen</p></li>
+<li><p>Passt make command noch?</p></li>
+</ol>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="#id3"><em>original entry</em></a> is located in /home/anna/Desktop/Uni/IDP/Code/Repo/tidowa/doc/new/start.rst, line 34.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>link /explain sympy</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="#id4"><em>original entry</em></a> is located in /home/anna/Desktop/Uni/IDP/Code/Repo/tidowa/doc/new/start.rst, line 112.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>which generators are there?
+change file names / directories cause languages are there?</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="#id5"><em>original entry</em></a> is located in /home/anna/Desktop/Uni/IDP/Code/Repo/tidowa/doc/new/start.rst, line 195.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>add my new plot method</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="#id6"><em>original entry</em></a> is located in /home/anna/Desktop/Uni/IDP/Code/Repo/tidowa/doc/new/start.rst, line 283.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>make bash</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="#id7"><em>original entry</em></a> is located in /home/anna/Desktop/Uni/IDP/Code/Repo/tidowa/doc/new/start.rst, line 293.)</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="overview.html" class="btn btn-neutral float-right" title="Overview" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="General Usage" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Anna Mittermair
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
