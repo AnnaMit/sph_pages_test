@@ -1,7 +1,0 @@
-main\_compile module
-====================
-
-.. automodule:: main_compile
-   :members:
-   :undoc-members:
-   :show-inheritance:

@@ -1,9 +1,0 @@
-TemplateTranspiler module
-=========================
-.. currentmodule:: src.codegen
-
-.. automodule:: TemplateTranspiler
-   :members:
-   :undoc-members:
-   :show-inheritance:
-

@@ -1,7 +1,0 @@
-opencl\_transpiler module
-=========================
-
-.. automodule:: opencl_transpiler
-   :members:
-   :undoc-members:
-   :show-inheritance:

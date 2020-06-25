@@ -1,7 +1,0 @@
-EquationSystem module
-=====================
-
-.. automodule:: EquationSystem
-   :members:
-   :undoc-members:
-   :show-inheritance:

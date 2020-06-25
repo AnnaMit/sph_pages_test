@@ -1,7 +1,0 @@
-generate\_test\_codes module
-============================
-
-.. automodule:: generate_test_codes
-   :members:
-   :undoc-members:
-   :show-inheritance:

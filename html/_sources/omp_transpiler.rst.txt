@@ -1,7 +1,0 @@
-omp\_transpiler module
-======================
-
-.. automodule:: omp_transpiler
-   :members:
-   :undoc-members:
-   :show-inheritance:

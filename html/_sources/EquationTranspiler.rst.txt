@@ -1,7 +1,0 @@
-EquationTranspiler module
-=========================
-
-.. automodule:: EquationTranspiler
-   :members:
-   :undoc-members:
-   :show-inheritance:

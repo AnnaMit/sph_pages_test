@@ -1,7 +1,0 @@
-main\_run module
-================
-
-.. automodule:: main_run
-   :members:
-   :undoc-members:
-   :show-inheritance:

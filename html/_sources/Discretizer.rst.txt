@@ -1,7 +1,0 @@
-Discretizer module
-==================
-
-.. automodule:: Discretizer
-   :members:
-   :undoc-members:
-   :show-inheritance:

@@ -1,4 +1,0 @@
-main\_debug module
-==================
-
-.. automodule:: main_debug
